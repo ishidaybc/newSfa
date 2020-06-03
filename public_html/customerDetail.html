@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>案件詳細</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="../build/css/tempusdominus-bootstrap-4.css" rel="stylesheet" type="text/css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/ja.js" type="text/javascript"></script>
+        <script src="../build/js/tempusdominus-bootstrap-4.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+        <style type="text/css">
+            .datepicker-days th.dow:first-child,
+            .datepicker-days td:first-child {
+                color: #f00;
+            }
+            .datepicker-days th.dow:last-child,
+            .datepicker-days td:last-child {
+                color: #00f;
+            }
+        </style>
+
+        <script type="text/javascript">
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+                $('.toast').toast('show');
+                $('#date_from').datetimepicker({
+                    dayViewHeaderFormat: 'YYYY年 MMMM',
+                    tooltips: {
+                        close: '閉じる',
+                        selectMonth: '月を選択',
+                        prevMonth: '前月',
+                        nextMonth: '次月',
+                        selectYear: '年を選択',
+                        prevYear: '前年',
+                        nextYear: '次年',
+                        selectTime: '時間を選択',
+                        selectDate: '日付を選択',
+                        prevDecade: '前期間',
+                        nextDecade: '次期間',
+                        selectDecade: '期間を選択',
+                        prevCentury: '前世紀',
+                        nextCentury: '次世紀'
+                    },
+                    format: 'YYYY/MM/DD',
+                    locale: 'ja',
+                    buttons: {
+                        showClose: true
+                    }
+                });
+                $('#date_to').datetimepicker({
+                    dayViewHeaderFormat: 'YYYY年 MMMM',
+                    tooltips: {
+                        close: '閉じる',
+                        selectMonth: '月を選択',
+                        prevMonth: '前月',
+                        nextMonth: '次月',
+                        selectYear: '年を選択',
+                        prevYear: '前年',
+                        nextYear: '次年',
+                        selectTime: '時間を選択',
+                        selectDate: '日付を選択',
+                        prevDecade: '前期間',
+                        nextDecade: '次期間',
+                        selectDecade: '期間を選択',
+                        prevCentury: '前世紀',
+                        nextCentury: '次世紀'
+                    },
+                    format: 'YYYY/MM/DD',
+                    locale: 'ja',
+                    buttons: {
+                        showClose: true
+                    }
+                });
+
+                $("#chk1").prop("checked", true);
+                $("#bikou1").val("悪天候のため打ち切り");
+                $("#chk2").prop("checked", true);
+            });
+
+            $('#date_to').on('hide.datetimepicker', function (date) {
+//                    $('#lst').show();
+            });
+
+            function toDetail(id) {
+                location.href = "./entry_" + id + ".html";
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1 style="padding: 10px;">顧客詳細</h1>
+        </header>
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="position: absolute; top: 0; right: 0;">
+            <div class="toast-header">
+                <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="red"/></svg>
+                <strong class="mr-auto">ToDo</strong>
+                <small>6/3</small>
+            </div>
+            <div class="toast-body">
+                <ul>
+                    <li>他ページからリンクして来るところ</li>
+                    <li>ここで見たいのは?
+                        <ul>
+                            <li>顧客情報</li>
+                            <li>企業情報</li>
+                            <li>活動情報</li>
+                            <li>納入情報</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div style="padding: 1% 5%;">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="card">
+                        <h6 class="card-header">基本情報</h6>
+                        <div class="card-body">
+                            <h6 class="card-title">(顧客コード)：YBC1234567890</h5>
+                            <h5 class="card-title">(顧客名)：株式会社ワイ・ビー・シー</h5>
+                            <p class="card-text">(顧客名カナ)：ワイ・ビーシー</p>
+                            <p class="card-text">(顧客名略称)：YBC</p>
+                        </div>
+                        <div class="card-footer">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item" role="presentation">
+                                    <a id="customer_tab" href="#customer" class="nav-link active" 
+                                       role="tab" data-toggle="tab" aria-controls="customer" aria-selected="true">顧客情報</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a id="company_tab" href="#company" class="nav-link"
+                                       role="tab" data-toggle="tab" aria-controls="company" aria-selected="false">企業情報</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a id="action_tab" href="#action" class="nav-link"
+                                       role="tab" data-toggle="tab" aria-controls="action" aria-selected="false">活動情報</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a id="delivery_tab" href="#delivery" class="nav-link"
+                                       role="tab" data-toggle="tab" aria-controls="delivery" aria-selected="false">納入情報</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a id="satff_list_tab" href="#staff_list" class="nav-link"
+                                       role="tab" data-toggle="tab" aria-controls="staff_list" aria-selected="false">スタッフ一覧</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div id="myTabContent" class="tab-content mt-3">
+                                <div id="customer" class="tab-pane active" role="tabpanel" aria-labelledby="customer-tab">
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <td>住所</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>電話番号</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>FAX番号</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>ホームページ</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>自社担当者</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>取引経緯</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>タグ</td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="company" class="tab-pane" role="tabpanel" aria-labelledby="company-tab">
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <td>業種</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>本社・支店</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>代表者名</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>会社設立年月日</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>資本金</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>年商</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>従業員数</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>上場区分</td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="action" class="tab-pane" role="tabpanel" aria-labelledby="action-tab">
+                                    <div class="list-group">
+                                        <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1">次回アクション</h5>
+                                                <small>5/1</small>
+                                            </div>
+                                            <p class="mb-1">内容</p>
+                                            <small></small>
+                                        </div>
+                                        <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1">案件一覧</h5>
+                                                <small class="text-muted">更新日付の新しいものから表示</small>
+                                            </div>
+                                            <p class="mb-1">(案件１)</p>
+                                            <p class="mb-1">(案件２)</p>
+                                            <p class="mb-1">(案件３)</p>
+                                            <small class="text-muted"></small>
+                                        </div>
+                                        <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1">活動履歴</h5>
+                                                <small class="text-muted">新しいものから10件表示</small>
+                                            </div>
+                                            <p class="mb-1">2020/06/03　(活動１)</p>
+                                            <p class="mb-1">2020/05/22　(活動２)</p>
+                                            <p class="mb-1">2020/05/11　(活動３)</p>
+                                            <small class="text-muted"></small>
+                                        </a>
+                                        </div>                                                         
+                                    </div>
+                                </div>
+                                <div id="delivery" class="tab-pane" role="tabpanel" aria-labelledby="delivery-tab">
+                                    <div class="list-group">
+                                        <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1">納入一覧</h5>
+                                            </div>
+                                            <p class="mb-1">2020/06　(納品物１)</p>
+                                            <p class="mb-1">2020/04　(納品物２)</p>
+                                        </div>
+                                    </div>
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <td>請求締日</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>支払サイト</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>契約書有無</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>メール送信フラグ</td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="staff_list" class="tab-pane" role="tabpanel" aria-labelledby="staff_list-tab">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <th>スタッフ氏名</th>
+                                            <th>部署</th>
+                                            <th>役職</th>
+                                            <th>電話番号</th>
+                                            <th>メールアドレス</th>
+                                            <th>名刺交換者</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>有明　泰利</td>
+                                                <td>営業部</td>
+                                                <td>部長</td>
+                                                <td>000-1111-1111</td>
+                                                <td>ariake@rely.co.jp</td>
+                                                <td>和井　菱雄</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-header">
+                            備考
+                        </div>
+                        <div class="list-group">
+                            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">内容</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
