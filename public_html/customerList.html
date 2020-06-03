@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>案件一覧</title>
+        <title>顧客一覧</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap CSS -->
@@ -89,13 +89,13 @@
             });
 
             function toDetail(id) {
-                location.href = "./projectDetail.html";
+                location.href = "./entry_" + id + ".html";
             }
         </script>
     </head>
     <body>
         <header>
-            <h1 style="padding: 10px;">案件一覧</h1>
+            <h1 style="padding: 10px;">顧客一覧</h1>
         </header>
         <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="position: absolute; top: 0; right: 0;">
             <div class="toast-header">
@@ -105,9 +105,11 @@
             </div>
             <div class="toast-body">
                 <ul>
-                    <li>検索条件 どんな状態が見たいか</li>
+                    <li>検索条件 何で絞り込みたいか</li>
                     <li>レスポンシブ対応 スマホではtableではなくlist-groupを検討</li>
-                    <li>顧客、案件、見積等の詳細は全てモーダルダイアログが良いか</li>
+                    <li>並べ替えを何でしたい</li>
+                    <li>行クリックで詳細ページにリンク</li>
+                    <li>マウスオーバーで詳細ダイアログ表示</li>
                 </ul>
             </div>
         </div>
@@ -115,14 +117,42 @@
             <form>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputEmail4">案件名</label>
-                        <input type="search" class="form-control" id="inputEmail4" placeholder="案件名で検索">
+                        <label for="inputEmail4">顧客名</label>
+                        <input type="search" class="form-control" id="inputEmail4" placeholder="顧客名">
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
+                        <label>担当者</label>
+                        <select class="custom-select custom-select-sm">
+                            <option>和井　菱雄</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>業種</label>
+                        <select class="custom-select custom-select-sm">
+                            <option>小売業</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                            <label class="form-check-label" for="inlineCheckbox1">新規</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                            <label class="form-check-label" for="inlineCheckbox2">既存</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
                         <div class="input-group date" id="date_from" data-target-input="nearest">
-                            <label for="date_from" class="pt-2 pr-2">期間　</label>
+                            <label for="date_from" class="pt-2 pr-2">最新アクション日　</label>
                             <input type="search" class="form-control datetimepicker-input" data-target="#date_from" />
                             <span class="input-group-append" data-target="#date_from" data-toggle="datetimepicker">
                                 <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
@@ -139,15 +169,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label>担当者</label>
-                        <select class="form-control">
-                            <option>和井　菱雄</option>
-                        </select>
-                    </div>
+                <div class="form-group col-md-6">
+                    <button type="button" class="btn btn-primary btn-block">検　索</button>
                 </div>
-                <button type="button" class="btn btn-primary">検　索</button>
             </form>
             <div style="padding: 1% 2%;">
                 <table class="table table-hover">
@@ -155,110 +179,95 @@
                     <thead>
                         <tr>
                             <th>顧客名</th>
-                            <th>案件名</th>
-                            <th>見積金額</th>
-                            <th>粗利金額</th>
-                            <th>進捗状況</th>
+                            <th>担当者</th>
+                            <th>区分</th>
+                            <th>業種</th>
+                            <th>資本金</th>
+                            <th>年商</th>
+                            <th>従業員数</th>
+                            <th>納品物</th>
                             <th>最新アクション日</th>
                             <th>最新アクション内容</th>
                             <th>次回アクション日</th>
                             <th>次回アクション内容</th>
                             <th>備考</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td onclick="toDetail('1')">○○○社</td>
-                            <td onclick="toDetail('1')">WebGIS</td>
-                            <td class="text-right">1,000,000</td>
-                            <td class="text-right">600,000</td>
-                            <td class="text-right">
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <small>60%</small>
-                            </td>
+                            <td onclick="toDetail('1')">○○○○○社</td>
+                            <td onclick="toDetail('1')">和井　菱雄</td>
+                            <td>既存</td>
+                            <td>小売業</td>
+                            <td class="text-right">1億円</td>
+                            <td class="text-right">100億円</td>
+                            <td class="text-right">1,000</td>
+                            <td>WebGIS</td>
                             <td>2020/4/1</td>
                             <td>訪問</td>
                             <td>2020/6/1</td>
                             <td>Web会議</td>
-                            <td>時期的な問題で話が進まなくなっている</td>
-                            <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td onclick="toDetail('1')">○○○社</td>
-                            <td onclick="toDetail('1')">Web営業支援</td>
-                            <td class="text-right">2,000,000</td>
-                            <td class="text-right">1,200,000</td>
-                            <td class="text-right">
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <small>40%</small>
-                            </td>
-                            <td>2020/4/1</td>
-                            <td>訪問</td>
-                            <td>
-                                <span class="bg-danger text-white" style="border-radius: 4px;">2020/5/11</span>
-                            </td>
-                            <td>Web会議</td>
-                            <td>時期的な問題で話が進まなくなっている</td>
-                            <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td onclick="toDetail('1')">○○○社</td>
-                            <td onclick="toDetail('1')">Web診療圏</td>
-                            <td class="text-right">1,000,000</td>
-                            <td class="text-right">600,000</td>
-                            <td class="text-right">
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <small>70%</small>
-                            </td>
+                            <td onclick="toDetail('1')">△△△△△△社</td>
+                            <td onclick="toDetail('1')">織礼　和志</td>
+                            <td>新規</td>
+                            <td>製造業</td>
+                            <td class="text-right">5千万円</td>
+                            <td class="text-right">10億円</td>
+                            <td class="text-right">200</td>
+                            <td>Web営業支援</td>
                             <td>2020/4/1</td>
                             <td>訪問</td>
                             <td>2020/6/1</td>
                             <td>Web会議</td>
-                            <td>時期的な問題で話が進まなくなっている</td>
-                            <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td onclick="toDetail('1')">○○○社</td>
-                            <td onclick="toDetail('1')">Web診療圏</td>
-                            <td class="text-right">1,000,000</td>
-                            <td class="text-right">600,000</td>
-                            <td class="text-right">
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <small>20%</small>
-                            </td>
+                            <td onclick="toDetail('1')">○○○○○社</td>
+                            <td onclick="toDetail('1')">和井　菱雄</td>
+                            <td>既存</td>
+                            <td>小売業</td>
+                            <td class="text-right">1億円</td>
+                            <td class="text-right">100億円</td>
+                            <td class="text-right">1,000</td>
+                            <td>WebGIS</td>
                             <td>2020/4/1</td>
                             <td>訪問</td>
                             <td>2020/6/1</td>
                             <td>Web会議</td>
-                            <td>どんな提案をすれば良いか分からない</td>
-                            <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td onclick="toDetail('1')">○○○社</td>
-                            <td onclick="toDetail('1')">Web診療圏</td>
-                            <td class="text-right">1,000,000</td>
-                            <td class="text-right">600,000</td>
-                            <td class="text-right">
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <small>70%</small>
-                            </td>
+                            <td onclick="toDetail('1')">○○○○○社</td>
+                            <td onclick="toDetail('1')">和井　菱雄</td>
+                            <td>既存</td>
+                            <td>小売業</td>
+                            <td class="text-right">1億円</td>
+                            <td class="text-right">100億円</td>
+                            <td class="text-right">1,000</td>
+                            <td>WebGIS</td>
                             <td>2020/4/1</td>
                             <td>訪問</td>
                             <td>2020/6/1</td>
                             <td>Web会議</td>
-                            <td>時期的な問題で話が進まなくなっている</td>
-                            <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td onclick="toDetail('1')">○○○○○社</td>
+                            <td onclick="toDetail('1')">和井　菱雄</td>
+                            <td>既存</td>
+                            <td>小売業</td>
+                            <td class="text-right">1億円</td>
+                            <td class="text-right">100億円</td>
+                            <td class="text-right">1,000</td>
+                            <td>WebGIS</td>
+                            <td>2020/4/1</td>
+                            <td>訪問</td>
+                            <td>2020/6/1</td>
+                            <td>Web会議</td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
