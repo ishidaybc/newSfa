@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>納品詳細</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="../build/css/tempusdominus-bootstrap-4.css" rel="stylesheet" type="text/css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/ja.js" type="text/javascript"></script>
+        <script src="../build/js/tempusdominus-bootstrap-4.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+        <style type="text/css">
+            .datepicker-days th.dow:first-child,
+            .datepicker-days td:first-child {
+                color: #f00;
+            }
+            .datepicker-days th.dow:last-child,
+            .datepicker-days td:last-child {
+                color: #00f;
+            }
+        </style>
+
+        <script type="text/javascript">
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+                $('.toast').toast('show');
+                $('#date_from').datetimepicker({
+                    dayViewHeaderFormat: 'YYYY年 MMMM',
+                    tooltips: {
+                        close: '閉じる',
+                        selectMonth: '月を選択',
+                        prevMonth: '前月',
+                        nextMonth: '次月',
+                        selectYear: '年を選択',
+                        prevYear: '前年',
+                        nextYear: '次年',
+                        selectTime: '時間を選択',
+                        selectDate: '日付を選択',
+                        prevDecade: '前期間',
+                        nextDecade: '次期間',
+                        selectDecade: '期間を選択',
+                        prevCentury: '前世紀',
+                        nextCentury: '次世紀'
+                    },
+                    format: 'YYYY/MM/DD',
+                    locale: 'ja',
+                    buttons: {
+                        showClose: true
+                    }
+                });
+                $('#date_to').datetimepicker({
+                    dayViewHeaderFormat: 'YYYY年 MMMM',
+                    tooltips: {
+                        close: '閉じる',
+                        selectMonth: '月を選択',
+                        prevMonth: '前月',
+                        nextMonth: '次月',
+                        selectYear: '年を選択',
+                        prevYear: '前年',
+                        nextYear: '次年',
+                        selectTime: '時間を選択',
+                        selectDate: '日付を選択',
+                        prevDecade: '前期間',
+                        nextDecade: '次期間',
+                        selectDecade: '期間を選択',
+                        prevCentury: '前世紀',
+                        nextCentury: '次世紀'
+                    },
+                    format: 'YYYY/MM/DD',
+                    locale: 'ja',
+                    buttons: {
+                        showClose: true
+                    }
+                });
+
+                $("#chk1").prop("checked", true);
+                $("#bikou1").val("悪天候のため打ち切り");
+                $("#chk2").prop("checked", true);
+            });
+
+            $('#date_to').on('hide.datetimepicker', function (date) {
+//                    $('#lst').show();
+            });
+
+            function toDetail(id) {
+                location.href = "./entry_" + id + ".html";
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1 style="padding: 10px;">納品詳細</h1>
+        </header>
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="position: absolute; top: 0; right: 0;">
+            <div class="toast-header">
+                <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="red"/></svg>
+                <strong class="mr-auto">ToDo</strong>
+                <small>6/3</small>
+            </div>
+            <div class="toast-body">
+                <ul>
+                    <li>ここで見たいのは?
+                        <ul>
+                            <li>見積の内容でいつ取引されたのか確認する</li>
+                            <li></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div style="padding: 1% 5%;">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 style="display: inline;">基本情報</h6>
+                            <button type="button" class="btn btn-success btn-sm pull-right" style="display: inline;" onclick="location.href='estimateDetail.html'">見積詳細</button>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-hover table-bordered" style="margin: 0px;">
+                                <tbody>
+                                    <tr>
+                                        <th class="table-info" style="width: 15%;">取引先名</th>
+                                        <td colspan="3"><h3>株式会社R&C</h3></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="table-info">案件名</th>
+                                        <td colspan="3"><h4>Map-Star Web診療圏　ゴールド</h4></td>
+                                    </tr>
+                                    <tr>
+                                        <th class="table-info">納品日</th>
+                                        <td>2020/06/02</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="table-info">納品場所</th>
+                                        <td>顧客事務所</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-footer" style="padding-bottom: 0px;">
+                            <h6>納品情報</h6>
+                        </div>
+                        <div class="card-body">
+                            <div id="myTabContent" class="tab-content">
+                                <table class="table table-hover table-bordered">
+                                    <thead class="table-info">
+                                        <th>商品名</th>
+                                        <th>数量</th>
+                                        <th>シリアル</th>
+                                        <th>ロット</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Map-Star Web診療圏　ゴールド</td>
+                                            <td>1</td>
+                                            <td>WEBCAA_G</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">Map-Star Web診療圏　ゴールドオプション</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 50px;">推定昼間人口</td>
+                                            <td>1</td>
+                                            <td>WEBCAA_GOP</td>
+                                            <td>1.2.1</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 50px;">病医院オプション項目</td>
+                                            <td>1</td>
+                                            <td>WEBCAA_GOP</td>
+                                            <td>1.0.10</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
