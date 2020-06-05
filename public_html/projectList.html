@@ -89,7 +89,13 @@
             });
 
             function toDetail(id) {
-                location.href = "./projectDetail.html";
+                if (id == '0'){
+                    location.href = "./projectDetail_motokura.html";
+                } else if (id == '2') {
+                    location.href = "./projectDetail_cure.html";
+                }else {
+                    location.href = "./projectDetail.html";
+                }
             }
         </script>
     </head>
@@ -108,6 +114,9 @@
                     <li>検索条件 どんな状態が見たいか</li>
                     <li>レスポンシブ対応 スマホではtableではなくlist-groupを検討</li>
                     <li>顧客、案件、見積等の詳細は全てモーダルダイアログが良いか</li>
+                    <li>日付・進捗あたりでソートしたい</li>
+                    <li>備考は案件の内容？</li>
+                    <li>最新のアクションに商談の内容を載せて、案件の内容は一覧をクリックしたときに出す</li>
                 </ul>
             </div>
         </div>
@@ -163,108 +172,161 @@
                             <th>最新アクション内容</th>
                             <th>次回アクション日</th>
                             <th>次回アクション内容</th>
-                            <th>備考</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td onclick="toDetail('1')">○○○社</td>
-                            <td onclick="toDetail('1')">WebGIS</td>
-                            <td class="text-right">1,000,000</td>
-                            <td class="text-right">600,000</td>
+                            <td onclick="toDetail('0')">元蔵</td>
+                            <td onclick="toDetail('0')">テレワークシステム</td>
+                            <td class="text-right">875,000</td>
+                            <td class="text-right">875,000</td>
                             <td class="text-right">
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
-                                <small>60%</small>
+                                <small>50%</small>
                             </td>
-                            <td>2020/4/1</td>
-                            <td>訪問</td>
-                            <td>2020/6/1</td>
-                            <td>Web会議</td>
-                            <td>時期的な問題で話が進まなくなっている</td>
-                            <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td onclick="toDetail('1')">○○○社</td>
-                            <td onclick="toDetail('1')">Web営業支援</td>
-                            <td class="text-right">2,000,000</td>
-                            <td class="text-right">1,200,000</td>
-                            <td class="text-right">
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <small>40%</small>
-                            </td>
-                            <td>2020/4/1</td>
-                            <td>訪問</td>
+                            <td>2020/5/8</td>
+                            <td>見積提出</td>
                             <td>
-                                <span class="bg-danger text-white" style="border-radius: 4px;">2020/5/11</span>
+                                <h5><span class="badge badge-warning" style="border-radius: 4px;">未定</span></h5>
                             </td>
-                            <td>Web会議</td>
-                            <td>時期的な問題で話が進まなくなっている</td>
+                            <td>受注</td>
                             <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
                         </tr>
                         <tr>
-                            <td onclick="toDetail('1')">○○○社</td>
-                            <td onclick="toDetail('1')">Web診療圏</td>
-                            <td class="text-right">1,000,000</td>
-                            <td class="text-right">600,000</td>
+                            <td onclick="toDetail('2')">Cure</td>
+                            <td onclick="toDetail('2')">Chiz+</td>
+                            <td class="text-right">450,000</td>
+                            <td class="text-right">450,000</td>
                             <td class="text-right">
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                                 <small>70%</small>
                             </td>
-                            <td>2020/4/1</td>
-                            <td>訪問</td>
-                            <td>2020/6/1</td>
-                            <td>Web会議</td>
-                            <td>時期的な問題で話が進まなくなっている</td>
+                            <td>2020/3/24</td>
+                            <td>稟議</td>
+                            <td>
+                                <h5><span class="badge badge-warning" style="border-radius: 4px;">未定</span></h5>
+                            </td>
+                            <td>データ整備の支援</td>
                             <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
                         </tr>
                         <tr>
-                            <td onclick="toDetail('1')">○○○社</td>
-                            <td onclick="toDetail('1')">Web診療圏</td>
-                            <td class="text-right">1,000,000</td>
-                            <td class="text-right">600,000</td>
+                            <td onclick="toDetail('1')">武蔵村山病院/健診営業支援</td>
+                            <td onclick="toDetail('1')">Chiz+</td>
+                            <td class="text-right"></td>
+                            <td class="text-right"></td>
                             <td class="text-right">
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
-                                <small>20%</small>
+                                <small>10%</small>
                             </td>
-                            <td>2020/4/1</td>
-                            <td>訪問</td>
-                            <td>2020/6/1</td>
-                            <td>Web会議</td>
-                            <td>どんな提案をすれば良いか分からない</td>
+                            <td>2020/3/12</td>
+                            <td>訪問・ヒヤリング</td>
+                            <td>
+                                <h5><span class="badge badge-warning" style="border-radius: 4px;">未定</span></h5>
+                            </td>
+                            <td>訪問(時機を見て)</td>
                             <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
                         </tr>
                         <tr>
-                            <td onclick="toDetail('1')">○○○社</td>
-                            <td onclick="toDetail('1')">Web診療圏</td>
-                            <td class="text-right">1,000,000</td>
-                            <td class="text-right">600,000</td>
+                            <td onclick="toDetail('1')">人材</td>
+                            <td onclick="toDetail('1')">宮地氏</td>
+                            <td class="text-right"></td>
+                            <td class="text-right"></td>
                             <td class="text-right">
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
-                                <small>70%</small>
+                                <small>100%</small>
                             </td>
-                            <td>2020/4/1</td>
-                            <td>訪問</td>
-                            <td>2020/6/1</td>
-                            <td>Web会議</td>
-                            <td>時期的な問題で話が進まなくなっている</td>
+                            <td></td>
+                            <td></td>
+                            <td>2020/6/30</td>
+                            <td>受注</td>
+                            <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td onclick="toDetail('1')">北山住宅販売</td>
+                            <td onclick="toDetail('1')">介護圏</td>
+                            <td class="text-right">2,000,000</td>
+                            <td class="text-right">1,000,000</td>
+                            <td class="text-right">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small>10%</small>
+                            </td>
+                            <td>2020/1/7</td>
+                            <td>挨拶</td>
+                            <td>
+                                <h5><span class="badge badge-warning" style="border-radius: 4px;">未定</span></h5>
+                            </td>
+                            <td>デモ(Web会議で対応できないか模索予定)</td>
+                            <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td onclick="toDetail('1')">尾藤会計事務所</td>
+                            <td onclick="toDetail('1')">Web診療圏</td>
+                            <td class="text-right"></td>
+                            <td class="text-right"></td>
+                            <td class="text-right">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small>10%</small>
+                            </td>
+                            <td>2019/12/13</td>
+                            <td>挨拶</td>
+                            <td>
+                                <h5><span class="badge badge-warning" style="border-radius: 4px;">未定</span></h5>
+                            </td>
+                            <td>内容・時期の確認</td>
+                            <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td onclick="toDetail('1')">スーパーバッグ</td>
+                            <td onclick="toDetail('1')">SWE届け先分類権限追加</td>
+                            <td class="text-right">3,375,000</td>
+                            <td class="text-right">3,375,000</td>
+                            <td class="text-right">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small>50%</small>
+                            </td>
+                            <td>2019/12/2</td>
+                            <td>見積</td>
+                            <td>2020/6/30</td>
+                            <td>稟議</td>
+                            <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
+                        </tr>                       
+                        <tr>
+                            <td onclick="toDetail('1')">タカサ</td>
+                            <td onclick="toDetail('1')"></td>
+                            <td class="text-right"></td>
+                            <td class="text-right"></td>
+                            <td class="text-right">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small>10%</small>
+                            </td>
+                            <td>2019/8/22</td>
+                            <td>挨拶</td>
+                            <td>
+                                <h5><span class="badge badge-warning" style="border-radius: 4px;">未定</span></h5>
+                            </td>
+                            <td>訪問(時機を見て)</td>
                             <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-
-
     </body>
 </html>
