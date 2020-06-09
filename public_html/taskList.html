@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>商談一覧</title>
+        <title>タスク一覧</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap CSS -->
@@ -90,33 +90,30 @@
 
             function toDetail(id) {
                 if (id == '0'){
-                    location.href = "./bizTalkDetail.html";
+                    location.href = "./projectDetail_motokura.html";
                 } else if (id == '2') {
-                    location.href = "./bizTalkDetail.html";
+                    location.href = "./projectDetail_cure.html";
                 }else {
-                    location.href = "./bizTalkDetail.html";
+                    location.href = "./projectDetail.html";
                 }
             }
         </script>
     </head>
     <body>
         <header>
-            <h1 style="padding: 10px;">商談一覧</h1>
+            <h1 style="padding: 10px;">タスク一覧</h1>
         </header>
         <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="position: absolute; top: 0; right: 0;">
             <div class="toast-header">
                 <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="red"/></svg>
                 <strong class="mr-auto">ToDo</strong>
-                <small>5/25</small>
+                <small>6/8</small>
             </div>
             <div class="toast-body">
                 <ul>
-                    <li>検索条件 案件毎、期間、担当、顧客、ステータス</li>
-                    <li>この画面でしりたいこと「活動の履歴を追う」</li>
-                    <li>案件詳細から活動履歴として表示する</li>
-                    <li>顧客詳細から活動履歴として表示する</li>
-                    <li>ダッシュボードから本日の予定として表示する</li>
-                    <li>レスポンシブ対応 スマホではtableではなくlist-groupを検討</li>
+                    <li>検索条件 どんな状態が見たいか</li>
+                    <li>未完了、アラート（何日前にお知らせの範囲内）で絞り込み</li>
+                    <li>ダイアログで完了入力、さらに次回予定もあれば登録</li>
                 </ul>
             </div>
         </div>
@@ -125,15 +122,13 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">顧客名</label>
-                        <input type="search" class="form-control" id="inputEmail4" placeholder="顧客名で検索" value="株式会社ワイ・ビー・シー">
+                        <input type="search" class="form-control" id="inputEmail4" placeholder="顧客名で検索">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">案件名</label>
-                        <select class="form-control">
-                            <option>新営業支援システム</option>
-                        </select>
+                        <input type="search" class="form-control" id="inputEmail4" placeholder="案件名で検索">
                     </div>
                 </div>
                 <div class="form-row">
@@ -167,91 +162,70 @@
                 <button type="button" class="btn btn-primary">検　索</button>
             </form>
             <div style="padding: 1% 2%;">
-                <table class="table table-hover w-100">
+                <table class="table table-hover">
                     <caption>※行をクリックすると詳細にリンクします（当サンプルでは1、2行目のみ）</caption>
                     <thead>
                         <tr>
-                            <th style="width: 15%;">顧客名</th>
-                            <th style="width: 15%;">案件名</th>
-                            <th style="width: 15%;">アクション日</th>
-                            <th style="width: 50%;">アクション内容</th>
-                            <th style="width: 5%;"></th>
+                            <th>顧客名</th>
+                            <th>案件名</th>
+                            <th>期限</th>
+                            <th>タスク概要</th>
+                            <th>完了</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td onclick="toDetail('0')">ワイ・ビー・シー</td>
-                            <td onclick="toDetail('0')">新営業支援システム</td>
-                            <td>2020/6/12</td>
-                            <td>見積提示</td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-comment"></i></button>
-                            </td>
+                        <tr class="table-warning">
+                            <td onclick="toDetail('0')">元蔵</td>
+                            <td onclick="toDetail('0')">テレワークシステム</td>
+                            <td>2020/6/25</td>
+                            <td>見積提出</td>
+                            <td>未</td>
+                        </tr>
+                        <tr class="table-warning">
+                            <td onclick="toDetail('2')">Cure</td>
+                            <td onclick="toDetail('2')">Chiz+</td>
+                            <td>2020/6/10</td>
+                            <td>連絡</td>
+                            <td>未</td>
+                        </tr>
+                        <tr class="table-danger">
+                            <td onclick="toDetail('1')">武蔵村山病院</td>
+                            <td onclick="toDetail('1')">健診営業支援</td>
+                            <td>2020/6/3</td>
+                            <td>資料作成</td>
+                            <td>未</td>
                         </tr>
                         <tr>
-                            <td onclick="toDetail('0')">ワイ・ビー・シー</td>
-                            <td onclick="toDetail('0')">新営業支援システム</td>
-                            <td>2020/6/4</td>
-                            <td>
-                                提案
-                                <span class="float-right"><small class="alert alert-danger">※報告が入力されていません</small></span>
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-comment"></i></button>
-                            </td>
+                            <td onclick="toDetail('1')">北山住宅販売</td>
+                            <td onclick="toDetail('1')">介護圏</td>
+                            <td>2020/5/25</td>
+                            <td>挨拶</td>
+                            <td>完了</td>
                         </tr>
                         <tr>
-                            <td onclick="toDetail('0')">ワイ・ビー・シー</td>
-                            <td onclick="toDetail('0')">新営業支援システム</td>
-                            <td>2020/5/22</td>
-                            <td>
-                                今日拾えた問題点は、EXCELと既存の営業支援ツールに同じような内容を入力するのが2度手間になってしまっているということ。<br>
-                                次回6/4(木)までに提案内容をまとめておく。
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-comment"></i></button>
-                            </td>
-                        </tr>             
+                            <td onclick="toDetail('1')">尾藤会計事務所</td>
+                            <td onclick="toDetail('1')">Web診療圏</td>
+                            <td>2020/5/18</td>
+                            <td>内容・時期の確認</td>
+                            <td>完了</td>
+                        </tr>
                         <tr>
-                            <td onclick="toDetail('0')">ワイ・ビー・シー</td>
-                            <td onclick="toDetail('0')">新営業支援システム</td>
-                            <td>2020/5/13</td>
-                            <td>
-                                アポ取りと電話口で簡単なヒアリング。<br>
-                                業務を効率化する方法を模索しているとのこと。<br>
-                                5/22(金)に訪問するのでそこで詳しい業務内容をヒヤリングする。
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-comment"></i></button>
-                            </td>
+                            <td onclick="toDetail('1')">スーパーバッグ</td>
+                            <td onclick="toDetail('1')">SWE届け先分類権限追加</td>
+                            <td>2020/4/30</td>
+                            <td>見積</td>
+                            <td>完了</td>
+                        </tr>                       
+                        <tr>
+                            <td onclick="toDetail('1')">タカサ</td>
+                            <td onclick="toDetail('1')"></td>
+                            <td>2019/4/23</td>
+                            <td>訪問</td>
+                            <td>完了</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">コメント</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <textarea class="form-control" id="message-text"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">キャンセル</button>
-                        <button type="button" class="btn btn-primary">送 信</button>
-                    </div>
-                </div>
-            </div>
-        </div>        
     </body>
 </html>

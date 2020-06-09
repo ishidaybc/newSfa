@@ -89,11 +89,11 @@
             });
 
             function toDetail(id) {
-                if (id == '0'){
+                if (id == '0') {
                     location.href = "./projectDetail_motokura.html";
                 } else if (id == '2') {
                     location.href = "./projectDetail_cure.html";
-                }else {
+                } else {
                     location.href = "./projectDetail.html";
                 }
             }
@@ -111,11 +111,17 @@
             </div>
             <div class="toast-body">
                 <ul>
-                    <li>検索条件 どんな状態が見たいか</li>
+                    <li>検索条件 どんな状態が見たいか
+                        <ul>
+                            <li>進んでいない案件</li>
+                            <li>次回予定が決まっていない</li>
+                            <li>商品で絞り込み</li>
+                            <li>金額で絞り込み</li>
+                        </ul>
+                    </li>
                     <li>レスポンシブ対応 スマホではtableではなくlist-groupを検討</li>
-                    <li>顧客、案件、見積等の詳細は全てモーダルダイアログが良いか</li>
+                    <li>顧客の詳細はモーダルダイアログが良いか</li>
                     <li>日付・進捗あたりでソートしたい</li>
-                    <li>備考は案件の内容？</li>
                     <li>最新のアクションに商談の内容を載せて、案件の内容は一覧をクリックしたときに出す</li>
                 </ul>
             </div>
@@ -165,22 +171,44 @@
                         <tr>
                             <th>顧客名</th>
                             <th>案件名</th>
+                            <th>担当者</th>
                             <th>見積金額</th>
                             <th>粗利金額</th>
                             <th>進捗状況</th>
-                            <th>最新アクション日</th>
-                            <th>最新アクション内容</th>
-                            <th>次回アクション日</th>
-                            <th>次回アクション内容</th>
+                            <th>最新活動日</th>
+                            <th>最新活動内容</th>
+                            <th>次回活動日</th>
+                            <th>次回活動内容</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td onclick="toDetail('2')">Cure</td>
+                            <td onclick="toDetail('2')">Chiz+</td>
+                            <td>和井　菱雄</td>
+                            <td class="text-right">450,000</td>
+                            <td class="text-right">270,000</td>
+                            <td class="text-right">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small>70%</small>
+                            </td>
+                            <td>2020/3/24</td>
+                            <td>稟議</td>
+                            <td>2020/6/1</td>
+                            <td>データ整備の支援</td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-comment"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
                             <td onclick="toDetail('0')">元蔵</td>
                             <td onclick="toDetail('0')">テレワークシステム</td>
+                            <td>和井　菱雄</td>
                             <td class="text-right">875,000</td>
-                            <td class="text-right">875,000</td>
+                            <td class="text-right">645,000</td>
                             <td class="text-right">
                                 <div class="progress">
                                     <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
@@ -190,33 +218,17 @@
                             <td>2020/5/8</td>
                             <td>見積提出</td>
                             <td>
-                                <h5><span class="badge badge-warning" style="border-radius: 4px;">未定</span></h5>
+                               <h5><span class="badge badge-danger" style="border-radius: 4px;">2020/5/20</span></h5>
                             </td>
                             <td>受注</td>
-                            <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td onclick="toDetail('2')">Cure</td>
-                            <td onclick="toDetail('2')">Chiz+</td>
-                            <td class="text-right">450,000</td>
-                            <td class="text-right">450,000</td>
-                            <td class="text-right">
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <small>70%</small>
-                            </td>
-                            <td>2020/3/24</td>
-                            <td>稟議</td>
                             <td>
-                                <h5><span class="badge badge-warning" style="border-radius: 4px;">未定</span></h5>
+                                <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-comment"></i></button>
                             </td>
-                            <td>データ整備の支援</td>
-                            <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
                         </tr>
                         <tr>
                             <td onclick="toDetail('1')">武蔵村山病院/健診営業支援</td>
                             <td onclick="toDetail('1')">Chiz+</td>
+                            <td>和井　菱雄</td>
                             <td class="text-right"></td>
                             <td class="text-right"></td>
                             <td class="text-right">
@@ -231,28 +243,14 @@
                                 <h5><span class="badge badge-warning" style="border-radius: 4px;">未定</span></h5>
                             </td>
                             <td>訪問(時機を見て)</td>
-                            <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td onclick="toDetail('1')">人材</td>
-                            <td onclick="toDetail('1')">宮地氏</td>
-                            <td class="text-right"></td>
-                            <td class="text-right"></td>
-                            <td class="text-right">
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <small>100%</small>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-comment"></i></button>
                             </td>
-                            <td></td>
-                            <td></td>
-                            <td>2020/6/30</td>
-                            <td>受注</td>
-                            <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
                         </tr>
                         <tr>
                             <td onclick="toDetail('1')">北山住宅販売</td>
                             <td onclick="toDetail('1')">介護圏</td>
+                            <td>和井　菱雄</td>
                             <td class="text-right">2,000,000</td>
                             <td class="text-right">1,000,000</td>
                             <td class="text-right">
@@ -263,15 +261,14 @@
                             </td>
                             <td>2020/1/7</td>
                             <td>挨拶</td>
-                            <td>
-                                <h5><span class="badge badge-warning" style="border-radius: 4px;">未定</span></h5>
-                            </td>
+                            <td>2020/6/15</td>
                             <td>デモ(Web会議で対応できないか模索予定)</td>
                             <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
                         </tr>
                         <tr>
                             <td onclick="toDetail('1')">尾藤会計事務所</td>
                             <td onclick="toDetail('1')">Web診療圏</td>
+                            <td>和井　菱雄</td>
                             <td class="text-right"></td>
                             <td class="text-right"></td>
                             <td class="text-right">
@@ -291,8 +288,9 @@
                         <tr>
                             <td onclick="toDetail('1')">スーパーバッグ</td>
                             <td onclick="toDetail('1')">SWE届け先分類権限追加</td>
+                            <td>和井　菱雄</td>
                             <td class="text-right">3,375,000</td>
-                            <td class="text-right">3,375,000</td>
+                            <td class="text-right">1,980,000</td>
                             <td class="text-right">
                                 <div class="progress">
                                     <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
@@ -308,6 +306,7 @@
                         <tr>
                             <td onclick="toDetail('1')">タカサ</td>
                             <td onclick="toDetail('1')"></td>
+                            <td>和井　菱雄</td>
                             <td class="text-right"></td>
                             <td class="text-right"></td>
                             <td class="text-right">
@@ -328,5 +327,29 @@
                 </table>
             </div>
         </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">コメント</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <textarea class="form-control" id="message-text"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">キャンセル</button>
+                        <button type="button" class="btn btn-primary">送 信</button>
+                    </div>
+                </div>
+            </div>
+        </div>        
     </body>
 </html>

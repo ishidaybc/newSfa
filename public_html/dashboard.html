@@ -88,9 +88,6 @@
 //                    $('#lst').show();
             });
 
-            function toDetail(id) {
-                location.href = "./entry_" + id + ".html";
-            }
         </script>
     </head>
     <body>
@@ -107,7 +104,8 @@
                 <ul>
                     <li>ここで見たいのは?
                         <ul>
-                            <li>今どんな状況か</li>
+                            <li>予定（目標）と実績　件数・金額</li>
+                            <li>件数は活動件数、顧客軒数</li>
                             <li>やり残していること、期限切れ</li>
                             <li>期限の近いこと</li>
                             <li>他者からのコメント</li>
@@ -118,27 +116,53 @@
             </div>
         </div>
         <div style="padding: 1% 5%;">
+            <div class="alert alert-danger w-50" role="alert">
+                <a href="./taskList.html" class="alert-link">期限切れタスクがあります</a>
+            </div>            
             <form>
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-3">
                         <select class="form-control">
                             <option>和井　菱雄</option>
                         </select>
                     </div>
+                    <a class="btn btn-primary btn-lg ml-5" href="./actionIndex.html"><i class="fas fa-plus"></i> 活動を登録</a>
                 </div>
             </form>
             <div class="row">
                 <div class="col-sm-3">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">6 / 10　件</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">今月</h6>
+                            <h5 class="card-title text-center">6 / 10　件</h5>
+                            <h6 class="card-subtitle mb-2 text-muted text-center">今月の活動実績／予定</h6>
                             <p class="card-text"></p>
-                            <a href="./projectList.html" class="card-link">案件状況</a>
-                            <a href="#" class="card-link">新規開拓状況</a>
+                            <div class="px-5">
+                                <table class="table table-borderless table-sm">
+                                    <tbody>
+                                        <tr>
+                                            <td>商談</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>見積</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>受注</td>
+                                            <td>1</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="text-center">
+                                <a href="./projectList.html" class="card-link">案件状況</a>
+                                <a href="#" class="card-link">新規開拓状況</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row" style="padding: 1rem 0;">
                 <div class="col-sm-3">
                     <div class="card">
                         <div class="card-body">
@@ -152,10 +176,10 @@
                 <div class="col-sm-3">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">期限切れ</h5>
+                            <h5 class="card-title">タスク</h5>
                             <h6 class="card-subtitle mb-2 text-muted">3件</h6>
-                            <p class="card-text">5/15 ×××社</p>
-                            <a href="./projectList.html" class="card-link">詳細</a>
+                            <p class="card-text">6/15 ×××社</p>
+                            <a href="./taskList.html" class="card-link">詳細</a>
                         </div>
                     </div>
                 </div>
@@ -167,7 +191,7 @@
                             <h5 class="card-title">コメント</h5>
                             <h6 class="card-subtitle mb-2 text-muted">4件</h6>
                             <p class="card-text">○○○○社　××案件　<small>B部長</small></p>
-                            <a href="./projectList.html" class="card-link">詳細</a>
+                            <a href="./commentList.html" class="card-link">詳細</a>
                         </div>
                     </div>
                 </div>
