@@ -95,9 +95,25 @@
     </head>
     <body>
         <header>
-            <h1 style="padding: 10px;">案件詳細</h1>
+            <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+                <a class="navbar-brand" href="./dashboard.html">MAP-STAR</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./projectList.html">案件</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./customerList.html">顧客</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>            
         </header>
-        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="position: absolute; top: 0; right: 0;">
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="position: absolute; top: 5rem; right: 0;">
             <div class="toast-header">
                 <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="red"/></svg>
                 <strong class="mr-auto">ToDo</strong>
@@ -120,10 +136,20 @@
                 </ul>
             </div>
         </div>
-        <div class="fixed-top" style="top: 10px; left: 40%;">
-            <a class="btn btn-primary btn-lg" href="./actionIndex.html"><i class="fas fa-plus"></i> 活動を登録</a>
+        <div class="fixed-top" style="top: 5rem; left: 60%;">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-plus"></i> 活動を登録
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="./registNegotiation.html">商談</a>
+                    <a class="dropdown-item" href="./registDelivery.html">見積</a>
+                    <a class="dropdown-item" href="#">その他</a>
+                </div>
+            </div>
         </div>
-        <div style="padding: 1% 5%;">
+        <div class="pt-5 pl-5">
+            <h1 class="py-3">案件詳細</h1>
             <div class="row">
                 <div class="col-sm-9">
                     <div class="card">
