@@ -130,11 +130,11 @@
             </div>
             <div class="toast-body">
                 <ul>
+                    <li class="text-danger">商談一覧ではなく「活動一覧」とすべき</li>
                     <li>検索条件 案件毎、期間、担当、顧客、ステータス</li>
                     <li>この画面でしりたいこと「活動の履歴を追う」</li>
                     <li>案件詳細から活動履歴として表示する</li>
                     <li>顧客詳細から活動履歴として表示する</li>
-                    <li>ダッシュボードから本日の予定として表示する</li>
                     <li>レスポンシブ対応 スマホではtableではなくlist-groupを検討</li>
                 </ul>
             </div>
@@ -193,8 +193,9 @@
                         <tr>
                             <th style="width: 15%;">顧客名</th>
                             <th style="width: 15%;">案件名</th>
-                            <th style="width: 15%;">アクション日</th>
-                            <th style="width: 50%;">アクション内容</th>
+                            <th style="width: 15%;">日時</th>
+                            <th></th>
+                            <th style="width: 50%;">内容</th>
                             <th style="width: 5%;"></th>
                         </tr>
                     </thead>
@@ -203,6 +204,7 @@
                             <td onclick="toDetail('0')">ワイ・ビー・シー</td>
                             <td onclick="toDetail('0')">新営業支援システム</td>
                             <td>2020/6/12</td>
+                            <td><span class="badge badge-secondary">事前</span></td>
                             <td>見積提示</td>
                             <td>
                                 <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-comment"></i></button>
@@ -212,6 +214,7 @@
                             <td onclick="toDetail('0')">ワイ・ビー・シー</td>
                             <td onclick="toDetail('0')">新営業支援システム</td>
                             <td>2020/6/4</td>
+                            <td><span class="badge badge-secondary">事前</span></td>
                             <td>
                                 提案
                                 <span class="float-right"><small class="alert alert-danger">※報告が入力されていません</small></span>
@@ -224,6 +227,7 @@
                             <td onclick="toDetail('0')">ワイ・ビー・シー</td>
                             <td onclick="toDetail('0')">新営業支援システム</td>
                             <td>2020/5/22</td>
+                            <td></td>
                             <td>
                                 今日拾えた問題点は、EXCELと既存の営業支援ツールに同じような内容を入力するのが2度手間になってしまっているということ。<br>
                                 次回6/4(木)までに提案内容をまとめておく。
@@ -236,6 +240,7 @@
                             <td onclick="toDetail('0')">ワイ・ビー・シー</td>
                             <td onclick="toDetail('0')">新営業支援システム</td>
                             <td>2020/5/13</td>
+                            <td></td>
                             <td>
                                 アポ取りと電話口で簡単なヒアリング。<br>
                                 業務を効率化する方法を模索しているとのこと。<br>

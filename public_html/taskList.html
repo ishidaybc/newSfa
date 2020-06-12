@@ -132,7 +132,9 @@
                 <ul>
                     <li>検索条件 どんな状態が見たいか</li>
                     <li>未完了、アラート（何日前にお知らせの範囲内）で絞り込み</li>
-                    <li>ダイアログで完了入力、さらに次回予定もあれば登録</li>
+                    <li><button type="button" class="btn btn-primary btn-sm">変更</button>で期限、内容をダイアログ入力、更新</li>
+                    <li><button type="button" class="btn btn-success btn-sm">実施</button>で日時、進捗率をダイアログ入力、更新</li>
+                    <li><button type="button" class="btn btn-success btn-sm">実施</button>で入力されたものはその日の活動として履歴に残る</li>
                 </ul>
             </div>
         </div>
@@ -189,8 +191,10 @@
                             <th>顧客名</th>
                             <th>案件名</th>
                             <th>期限</th>
-                            <th>タスク概要</th>
-                            <th>完了</th>
+                            <th>内容</th>
+                            <th></th>
+                            <th>進捗</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -199,49 +203,102 @@
                             <td onclick="toDetail('0')">テレワークシステム</td>
                             <td>2020/6/25</td>
                             <td>状況確認</td>
-                            <td>未</td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm">変更</button>
+                            </td>
+                            <td class="text-right">
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small>10%</small>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-success btn-sm">実施</button>
+                            </td>
                         </tr>
                         <tr class="table-warning">
                             <td onclick="toDetail('2')">Cure</td>
                             <td onclick="toDetail('2')">Chiz+</td>
                             <td>2020/6/10</td>
                             <td>連絡</td>
-                            <td>未</td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm">変更</button>
+                            </td>
+                            <td class="text-right">
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small>50%</small>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-success btn-sm">実施</button>
+                            </td>
                         </tr>
                         <tr class="table-danger">
                             <td onclick="toDetail('1')">武蔵村山病院</td>
                             <td onclick="toDetail('1')">健診営業支援</td>
                             <td>2020/6/3</td>
                             <td>資料作成</td>
-                            <td>未</td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm">変更</button>
+                            </td>
+                            <td class="text-right">
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small>60%</small>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-success btn-sm">実施</button>
+                            </td>
                         </tr>
                         <tr>
                             <td onclick="toDetail('1')">北山住宅販売</td>
                             <td onclick="toDetail('1')">介護圏</td>
                             <td>2020/5/25</td>
                             <td>挨拶</td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm">変更</button>
+                            </td>
                             <td>完了</td>
+                            <td>
+                            </td>
                         </tr>
                         <tr>
                             <td onclick="toDetail('1')">尾藤会計事務所</td>
                             <td onclick="toDetail('1')">Web診療圏</td>
                             <td>2020/5/18</td>
                             <td>内容・時期の確認</td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm">変更</button>
+                            </td>
                             <td>完了</td>
+                            <td>
+                            </td>
                         </tr>
                         <tr>
                             <td onclick="toDetail('1')">スーパーバッグ</td>
                             <td onclick="toDetail('1')">SWE届け先分類権限追加</td>
                             <td>2020/4/30</td>
                             <td>見積</td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm">変更</button>
+                            </td>
                             <td>完了</td>
+                            <td>
+                            </td>
                         </tr>                       
                         <tr>
                             <td onclick="toDetail('1')">タカサ</td>
                             <td onclick="toDetail('1')"></td>
                             <td>2019/4/23</td>
                             <td>訪問</td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm">変更</button>
+                            </td>
                             <td>完了</td>
+                            <td>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
