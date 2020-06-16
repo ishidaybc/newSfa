@@ -17,7 +17,7 @@
         <script src="../build/js/tempusdominus-bootstrap-4.js"></script>
         <script src="../build/js/bootstrap-multiselect.js"></script>
         <script src="../build/js/jquery-ui-1.10.2.custom.min.js"></script>
-        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.11/js/all.js"></script>
         <style type="text/css">
             .datepicker-days th.dow:first-child,
             .datepicker-days td:first-child {
@@ -154,32 +154,12 @@
                     <div class="form-group col-md-6">
                         <label for="order">案件名</label>
                         <div class="dropdown" id="order">
-                            <input type="text" name="list_name" class="form-control dropdown-toggle" data-toggle="dropdown" placeholder="先頭一致で抽出できます" readonly>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li class="autocomplete" data-autocomplete="メガネスーパー" data-target="list_name">
-                                    <a href="#">メガネスーパー</a>
-                                </li>
-                                <li class="autocomplete" data-autocomplete="ビーンスターク" data-target="list_name">
-                                    <a href="#">ビーンスターク</a>
-                                </li>
-                                <li class="autocomplete" data-autocomplete="みつばコミュニティ" data-target="list_name">
-                                    <a href="#">みつばコミュニティ</a>
-                                </li>
-                                <li class="autocomplete" data-autocomplete="スーパーバッグ" data-target="list_name">
-                                    <a href="#">スーパーバッグ</a>
-                                </li>
-                                <li class="autocomplete" data-autocomplete="テクノイルジャポン" data-target="list_name">
-                                    <a href="#">テクノイルジャポン</a>
-                                </li>
-                                <li class="autocomplete" data-autocomplete="スーパーマーケット" data-target="list_name">
-                                    <a href="#">スーパーマーケット</a>
-                                </li>
-                                <li class="autocomplete" data-autocomplete="テクモ" data-target="list_name">
-                                    <a href="#">テクモ</a>
-                                </li>
-                            </ul>
+                            <input type="text" name="list_name" class="form-control" value="新システム構築" readonly>
                         </div>
                     </div>
+                </div>
+                <div class="form-row p-3">
+                    <label>顧客名: ○○株式会社</label>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
@@ -194,18 +174,26 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
-                        <label>先方担当者</label>
+                        <label><i class="fas fa-user-tie"></i> 先方担当者</label>
                         <select class="form-control">
                             <option>有明　泰利</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label><i class="far fa-user"></i> 自社担当者</label>
+                        <select class="form-control">
+                            <option>和井　菱雄</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
                     <div class="form-group col-md-6">
                         <label>商品</label>
-                        <select id="products" class="form-control">
+                        <select id="products" class="form-control multiselect" multiple="multiple">
                             <option>Web診療圏</option>
-                            <option>WebGIS</option>
+                            <option selected="">WebGIS</option>
                             <option>at</option>
                             <option>Chiz+</option>
                         </select>
@@ -213,10 +201,10 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label>タグ</label>
+                        <label><i class="fas fa-tags"></i> タグ</label>
                         <select id="products" class="form-control multiselect" multiple="multiple">
                             <option>営業支援2019</option>
-                            <option>営業支援2020</option>
+                            <option selected="">営業支援2020</option>
                             <option>HOSPEX2019</option>
                             <option>HOSPEX2020</option>
                             <option>病院</option>
@@ -227,15 +215,9 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-row d-none">
-                    <div class="form-group col-md-6">
-                        <label for="remarks_text">報告内容</label>
-                        <textarea id="remarks_text" class="form-control" placeholder="本日の活動内容を入力してください"></textarea>
-                    </div>
-                </div>
                 <div class="card">
                     <div class="card-header">
-                        質問事項
+                        <i class="fas fa-question"></i> 質問事項
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
@@ -255,7 +237,7 @@
                 <div class="pb-5">
                     <button type="button" class="btn btn-default btn-outline-dark">質問を追加<i class="fas fa-plus"></i></button>
                 </div>
-                <div class="form-row d-none">
+                <div class="form-row">
                     <div class="form-group col-md-6">
                         <label>進捗状況</label>
                         <select id="products" class="form-control">
@@ -275,6 +257,13 @@
                     </div>
                 </div>
                 <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="remarks_text">報告内容</label>
+                        <textarea id="remarks_text" class="form-control" placeholder="内容を入力してください"></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label><i class="far fa-file"></i> ファイル</label>
                     <div id="file" class="input-group">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="customFile" name="custom[file][]" multiple>
@@ -286,29 +275,43 @@
                     </div>
                     <div id="preview"></div>
                 </div>
-                <div class="form-row d-none">
+                <div class="form-row mt-5">
                     <div class="form-group col-md-6">
-                        <label for="next_plan">次回予定</label>
-                        <textarea id="next_plan" class="form-control" placeholder="次回の活動予定を入力してください"></textarea>
-                    </div>
-                </div>
-                <div class="form-row d-none">
-                    <div class="form-group col-md-4">
-                        <div class="input-group date" id="ordered_date" data-target-input="nearest">
-                            <label for="next_date" class="pt-2 pr-2">　次回予定日</label>
-                            <input type="search" class="form-control datetimepicker-input" data-target="#next_date" />
-                            <span class="input-group-append" data-target="#next_date" data-toggle="datetimepicker">
-                                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                            </span>
+                        <div class="card">
+                            <div class="card-header">次回予定</div>
+                            <div class="card-body">
+                                <div class="input-group date" id="ordered_date" data-target-input="nearest">
+                                    <input type="search" class="form-control datetimepicker-input" data-target="#next_date" />
+                                    <span class="input-group-append" data-target="#next_date" data-toggle="datetimepicker">
+                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                    </span>
+                                    <select class="form-control">
+                                        <option>に</option>
+                                        <option>までに</option>
+                                    </select>
+                                    <select class="form-control">
+                                        <option>商談</option>
+                                        <option>連絡</option>
+                                        <option>見積</option>
+                                        <option>資料送付</option>
+                                    </select>
+                                </div>
+                                <textarea id="next_plan" class="form-control" placeholder="概要を入力してください"></textarea>
+                            </div>
+                            <form>
+                                <div class="form-group row pl-3">
+                                    <label for="inputPassword" class="col-sm-3 col-form-label">アラート日数</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="next_plan_alert" value="14" size="3">
+                                    </div>
+                                    <label for="inputPassword" class="col-sm-3 col-form-label">日前に通知</label>
+                                </div>
+                            </form>
+
                         </div>
                     </div>
-                    <div class="form-group col-md-2 pl-5 d-none">
-                        <div class="input-group">
-                            <label for="next_plan_alert">次回予定アラート日数</label>
-                            <input type="text" class="form-control" id="next_plan_alert" value="14">
-                        </div>
-                    </div>
                 </div>
+
                 <button type="button" class="btn btn-primary">登　録</button>
             </form>
 

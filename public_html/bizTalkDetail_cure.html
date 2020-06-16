@@ -36,7 +36,7 @@
     </head>
     <body>
         <header>
-            <h1 style="padding: 10px;">商談詳細</h1>
+            <h3 style="padding: 10px;">商談詳細</h3>
         </header>
         <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="position: absolute; top: 0; right: 0;">
             <div class="toast-header">
@@ -60,51 +60,72 @@
                             <li>添付ファイル　見積書・資料等</li>
                         </ul>
                     </li>
+                    <li>顧客情報の未入力情報をアラート表示</li>
+                    <li>商談結果を入れたら事前準備情報は変更不可</li>
                 </ul>
             </div>
         </div>
         <div style="padding: 1% 5%;">
             <div class="row">
                 <div class="col-sm-9">
-                    <div class="card">
+                    <div class="card border-info">
                         <div class="card-body">
-                            <h4 class="card-title">Chiz+</h4>
+                            <h4 class="card-title">
+                                <a class="btn btn-primary btn-sm pull-right" href="./registBizTalkBefore.html"><i class="fas fa-edit"></i> 編集</a>
+                                2020/6/21
+                            </h4>
                             <h6 class="card-subtitle mb-2 text-muted">
                                 <small class="alert alert-danger pull-right" role="alert">
                                     従業員数、資本金が未設定です
-                                </small>                            </h6>
-                                <a href="./customerDetail.html">株式会社Cure</a>
-                            <p class="card-text">Chiz+に取り込む店舗データの整備補助</p>
+                                </small>
+                            </h6>
+                            <a href="./customerDetail.html">株式会社Cure</a>
+                            <p class="card-text"><small>案件名：</small> 店舗データ整備補助</p>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">MAP-STAR Chiz+</li>
-                            <li class="list-group-item">三井　利幸</li>
+                            <li class="list-group-item"><small>商談の目的：</small>見積の稟議結果と今後のスケジュールについて</li>
+                            <li class="list-group-item"><small>面会者：</small>○○様</li>
+                            <li class="list-group-item"><small>自社担当：</small>和井　菱雄</li>
                         </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="row pt-3">
-                <div class="col-sm-9">
-                    <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">事前準備</h5>
-                            <p class="card-text">Chiz+に取り込むデータ作成が上手くいかないとの問い合わせ。</p>
-                            <p class="card-text"><small class="border border-secondary rounded p-1 mr-1">10ユーザ以上</small><small class="border border-secondary rounded p-1 mr-1">出張あり</small><small class="border border-secondary rounded p-1 mr-1">スマホあり</small><small class="border border-secondary rounded p-1 mr-1">営業支援EXPO2016</small></p>
-                            <p class="card-text">ファイル</p>
+                            <p class="card-text">質問事項</p>
+                            <ul class="">
+                                <li>稟議の結果</li>
+                                <li>理由</li>
+                                <li>導入窓口について</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row pt-3">
                 <div class="col-sm-9">
-                    <div class="card">
+                    <div class="card border-success">
                         <div class="card-body">
                             <h5 class="card-title">
-                                <a class="btn btn-primary btn-sm pull-right" href="./registNegotiation.html"><i class="fas fa-edit"></i> 編集</a>
-                                商談内容
+                                <a class="btn btn-primary btn-sm pull-right" href="./registBizTalkAfter.html"><i class="fas fa-edit"></i> 編集</a>
+                                商談結果
                             </h5>
-                            <p class="card-text">7/1 10:00 訪問 菅原　博文</p>
-                            <p class="card-text">データ整備の為の支援を行う。６日から在宅ワークが行われている。店舗ラウンダーは一切行われておらず、Cureの入っているビルでもコロナが出たため、検討は止まっている状態。動き次第連絡をくれる事に。</p>
+                            <p class="card-text">2020/6/21 10:00</p>
+                                                        <ul class="">
+                                <li>稟議の結果
+                                    <ul>
+                                        <li>稟議はB案で通った。</li>
+                                    </ul>
+                                </li>
+                                <li>理由
+                                    <ul>
+                                        <li>コストをかけてまでA案をやる必要もないとの判断。</li>
+                                    </ul>
+                                </li>
+                                <li>導入窓口について
+                                    <ul>
+                                        <li>○○様自身となる。副担当も付ける予定。</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p class="card-text">次期予算にしたいので、納期は10月となる。</p>
                             <p class="card-text"><small class="border border-secondary rounded p-1 mr-1">20ユーザ以上</small><small class="border border-secondary rounded p-1 mr-1">出張あり</small><small class="border border-secondary rounded p-1 mr-1">スマホあり</small><small class="border border-secondary rounded p-1 mr-1">営業支援EXPO2016</small><small class="border border-secondary rounded p-1 mr-1">写真保存あり</small></p>
                             <p class="card-text">ファイル</p>
                         </div>
@@ -113,7 +134,7 @@
             </div>
             <div class="row pt-3">
                 <div class="col-sm-9">
-                    <div class="card">
+                    <div class="card border-warning">
                         <div class="card-body">
                             <h5 class="card-title">次回予定</h5>
                             <p class="card-text">8/1 10:00 メール送信 菅原　博文</p>

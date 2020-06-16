@@ -113,7 +113,7 @@
     </head>
     <body>
         <header>
-            <h1 style="padding: 10px;">顧客登録</h1>
+            <h3 style="padding: 10px;">顧客登録</h3>
         </header>
         <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="position: absolute; top: 0; right: 0;">
             <div class="toast-header">
@@ -130,179 +130,210 @@
         </div>
         <div style="padding: 1% 5%;">
             <form>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputEmail4">顧客コード</label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="顧客コード">
-                    </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">顧客コード</label>
+                    <input type="text" class="form-control" id="inputEmail4" placeholder="顧客コード">
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                     <label for="inputAddress">顧客名</label>
                     <input type="text" class="form-control" id="inputAddress" placeholder="顧客名">
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                     <label for="inputAddress">顧客名カナ</label>
                     <input type="text" class="form-control" id="inputAddress" placeholder="顧客名カナ">
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                     <label for="inputAddress">略称</label>
                     <input type="text" class="form-control" id="inputAddress" placeholder="略称">
                 </div>
-                <div class="form-group">
-                    <label for="inputAddress">業種</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="業種">
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-2">
-                        <label for="inputAddress">資本金</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="資本金">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="inputAddress">年商</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="年商">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-2">
-                        <label for="inputAddress">代表者氏名</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="代表者氏名">
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                        <label class="form-check-label" for="inlineRadio1">上場</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                        <label class="form-check-label" for="inlineRadio2">非上場</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                        <label class="form-check-label" for="inlineRadio1">本社</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                        <label class="form-check-label" for="inlineRadio2">支店</label>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <form class="form-inline">
-                        <label for="inlineFormInputName2">郵便番号</label>
-                        <input type="text" class="form-control col-md-2 ml-2" id="inlineFormInputName2" placeholder="">
-                        <button type="button" class="btn btn-light ml-2">住所検索</button>
-                    </form>                
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-2">
-                        <select class="form-control">
-                            <option>東京都</option>
-                            <option>神奈川県</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <input type="text" class="form-control" id="inputCity" placeholder="市区町村以下">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <input type="text" class="form-control" id="inputCity" placeholder="建物名・部屋番号">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <form class="form-inline">
-                        <label for="inputAddress">電話番号</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="">
-                        <input type="text" class="form-control" id="inputAddress" placeholder="">
-                    </form>
-                </div>
-                <div class="form-row">
-                    <form class="form-inline">
-                        <label for="inputAddress">FAX番号</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="">
-                    </form>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-2">
-                        <label for="inputAddress">URL</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="inputAddress">会社設立</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" for="inputAddress">自社担当者</label>
-                    <div class="col-sm-10">
-                        <ul class="list-unstyled">
-                            <li>和井　菱雄</li>
-                            <li>織礼　和志</li>
-                        </ul>
-                    </div>
-                    <div class="input-group col-sm-5 mb-3">
-                        <input type="text" class="form-control" placeholder="担当者を検索" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">追加</button>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-row">
+                            <form class="form-inline">
+                                <label for="inlineFormInputName2">郵便番号</label>
+                                <input type="text" class="form-control col-md-1 ml-2" id="inlineFormInputName2" placeholder="">
+                                <button type="button" class="btn btn-light ml-2">住所検索</button>
+                            </form>                
                         </div>
-                    </div>                    
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <select class="form-control">
+                                    <option>東京都</option>
+                                    <option>神奈川県</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="inputCity" placeholder="市区町村以下">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" id="inputCity" placeholder="建物名・部屋番号">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-row">
-                    <form class="form-inline">
-                        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">請求締日</label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="">
-                        <label for="inputEmail4">日</label>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputAddress">URL</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <label for="inputAddress">電話番号</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="">
+                                <input type="text" class="form-control" id="inputAddress" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <label for="inputAddress">FAX番号</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group col-md-6">
+                            <label for="inputAddress">業種</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="業種">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <label for="inputAddress">資本金</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="資本金">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="inputAddress">年商</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="年商">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <label for="inputAddress">代表者氏名</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="代表者氏名">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="inputAddress">会社設立</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <label class="form-check-label" for="inlineRadio1">上場</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">非上場</label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1">
+                                <label class="form-check-label" for="inlineRadio1">本社</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">支店</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-row">
+                            <form class="form-inline">
+                                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">請求締日</label>
+                                <input type="text" class="form-control" id="inputEmail4" placeholder="">
+                                <label for="inputEmail4">日</label>
 
-                        <label class="my-1 ml-2" for="inlineFormCustomSelectPref">支払サイト</label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="">
-                    </form>
-                </div>
-                <div class="form-row">
-                    <form class="form-inline">
-                        <label for="inlineFormInputName2">契約書</label>
-                        <input type="file" id="customFile">
-                    </form>                
-                </div>
-                <div class="form-row">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                        <label class="form-check-label" for="inlineRadio1">見込み</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                        <label class="form-check-label" for="inlineRadio2">既存</label>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-2">
-                        <label for="inputAddress">取引経緯</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="">
-                    </div>
-                    <div class="form-group">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck">
-                        <label class="form-check-label" for="gridCheck">
-                          メール送信不可
-                        </label>
-                      </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-5">
-                        <label for="inputAddress">備考</label>
-                        <textarea class="form-control" id="inputAddress" placeholder=""></textarea>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" for="inputAddress">タグ</label>
-                    <div class="col-sm-8">
-                        <small class="border border-secondary rounded p-1 mr-1">タグ</small><small class="border border-secondary rounded p-1 mr-1">タグ</small><small class="border border-secondary rounded p-1 mr-1">タグ</small><small class="border border-secondary rounded p-1 mr-1">タグ</small><small class="border border-secondary rounded p-1 mr-1">タグ</small>
-                    </div>
-                    <div class="input-group col-sm-5 mb-3">
-                        <input type="text" class="form-control" placeholder="タグを検索" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">追加</button>
+                                <label class="my-1 ml-2" for="inlineFormCustomSelectPref">支払サイト</label>
+                                <input type="text" class="form-control" id="inputEmail4" placeholder="">
+                            </form>
                         </div>
-                    </div>                    
+                        <div class="form-row my-3">
+                            <form class="form-inline">
+                                <label for="inlineFormInputName2">契約書</label>
+                                <input type="file" id="customFile">
+                            </form>                
+                        </div>
+                    </div>
                 </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="inputAddress">自社担当者</label>
+                            <div class="col-sm-10">
+                                <ul class="list-unstyled">
+                                    <li>和井　菱雄</li>
+                                    <li>織礼　和志</li>
+                                </ul>
+                            </div>
+                            <div class="input-group col-sm-5 mb-3">
+                                <input type="text" class="form-control" placeholder="担当者を検索" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">追加</button>
+                                </div>
+                            </div>                    
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <label class="form-check-label" for="inlineRadio1">見込み</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">既存</label>
+                            </div>
+                        </div>
+                        <div class="form-row mt-3">
+                            <div class="form-group col-md-2">
+                                <label for="inputAddress">取引経緯</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <label class="form-check-label" for="gridCheck">
+                                        メール送信不可
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-5">
+                                <label for="inputAddress">備考</label>
+                                <textarea class="form-control" id="inputAddress" placeholder=""></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="inputAddress">タグ</label>
+                            <div class="col-sm-8">
+                                <small class="border border-secondary rounded p-1 mr-1">タグ</small><small class="border border-secondary rounded p-1 mr-1">タグ</small><small class="border border-secondary rounded p-1 mr-1">タグ</small><small class="border border-secondary rounded p-1 mr-1">タグ</small><small class="border border-secondary rounded p-1 mr-1">タグ</small>
+                            </div>
+                            <div class="input-group col-sm-5 mb-3">
+                                <input type="text" class="form-control" placeholder="タグを検索" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">追加</button>
+                                </div>
+                            </div>                    
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary">登　録</button>
             </form>            
         </div>
     </body>
