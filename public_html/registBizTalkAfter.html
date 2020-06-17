@@ -285,28 +285,30 @@
                                     <span class="input-group-append" data-target="#next_date" data-toggle="datetimepicker">
                                         <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                     </span>
-                                    <select class="form-control">
+                                    <select class="form-control d-none">
                                         <option>に</option>
                                         <option>までに</option>
                                     </select>
                                     <select class="form-control">
                                         <option>商談</option>
                                         <option>連絡</option>
-                                        <option>見積</option>
+                                        <option>連絡待ち</option>
                                         <option>資料送付</option>
+                                        <option>見積</option>
+                                        <option>納品</option>
                                     </select>
                                 </div>
+                                <form>
+                                    <div class="form-group row mt-3 pl-3">
+                                        <label for="inputPassword" class="col-sm-3 col-form-label">アラート日数</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" id="next_plan_alert" value="14" size="3">
+                                        </div>
+                                        <label for="inputPassword" class="col-sm-3 col-form-label">日前に通知</label>
+                                    </div>
+                                </form>
                                 <textarea id="next_plan" class="form-control" placeholder="概要を入力してください"></textarea>
                             </div>
-                            <form>
-                                <div class="form-group row pl-3">
-                                    <label for="inputPassword" class="col-sm-3 col-form-label">アラート日数</label>
-                                    <div class="col-sm-2">
-                                        <input type="text" class="form-control" id="next_plan_alert" value="14" size="3">
-                                    </div>
-                                    <label for="inputPassword" class="col-sm-3 col-form-label">日前に通知</label>
-                                </div>
-                            </form>
 
                         </div>
                     </div>

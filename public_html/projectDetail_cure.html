@@ -128,8 +128,14 @@
                         <ul>
                             <li>案件情報</li>
                             <li>案件に対する活動履歴</li>
-                            <li>次回活動予定 = 次の顧客とのアポイント</li>
-                            <li>残タスク = 期限までにやっておくこと　連絡する、資料を送る、見積を出す等</li>
+                            <li>次回予定 = 次の活動</li>
+                            <li>残タスク = 次の活動期限までにやっておくこと　連絡のための調査、資料作成、見積作成等</li>
+                            <li>活動履歴
+                                <ul>
+                                    <li>商談、見積はそれぞれの詳細ページにリンク</li>
+                                    <li>それ以外はリンクしない</li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -139,7 +145,7 @@
             <h3 class="py-3">案件詳細</h3>
             <div class="row">
                 <div class="col-sm-9">
-                    <div class="card border-info">
+                    <div class="card border-secondary">
                         <div class="card-body">
                             <h4 class="card-title"><small>案件名：</small> 店舗データ整備補助</h4>
                             <a class="btn btn-sm btn-primary pull-right" href="./registProject.html"><i class="far fa-edit"></i> 変更</a>
@@ -179,8 +185,11 @@
             </div>
             <div class="row pt-3">
                 <div class="col-sm-9">
-                    <div class="card border-success">
+                    <div class="card border-info">
                         <div class="card-header">
+                            <button class="btn btn-sm btn-info pull-right" type="button" id="dropdownMenuButtonP" data-toggle="modal" data-target="#exampleModal">
+                                <i class="fas fa-plus"></i> 予定を登録
+                            </button>
                             次回予定
                         </div>
                         <div class="card-body">
@@ -188,7 +197,7 @@
                             <h6 class="card-subtitle mb-2 text-muted">商談</h6>
                             <p class="card-text">見積の稟議結果と今後のスケジュールについて</p>
                             <a href="./bizTalkDetail_cure.html" class="card-link">詳細</a>
-                            <a class="btn btn-sm btn-success pull-right d-none" href="./registBizTalkAfter.html"><i class="fas fa-edit"></i> 商談後報告</a>
+                            <a class="btn btn-sm btn-success pull-right" href="./registBizTalkAfter.html"><i class="fas fa-edit"></i> 商談後報告</a>
                         </div>
                     </div>
                 </div>
@@ -201,7 +210,7 @@
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item list-group-item-danger">
-                                <a href="./taskList.html" class="card-link">連絡　2020/6/10</a>
+                                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal12">連絡　2020/6/10</button>
                             </li>
                         </ul>
                     </div>                
@@ -209,14 +218,14 @@
             </div>
             <div class="row pt-3">
                 <div class="col-sm-9">
-                    <div class="card border-secondary">
+                    <div class="card border-success">
                         <div class="card-header">
                             <a href="./bizTalkList.html" class="card-link pull-right ml-3">もっと見る</a>
                             <button class="btn btn-sm btn-success dropdown-toggle pull-right" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-plus"></i> 活動を登録
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="./registBizTalkBefore.html">商談</a>
+                                <a class="dropdown-item" href="./registBizTalkAfter.html">商談</a>
                                 <a class="dropdown-item" href="./registEstimate.html">見積</a>
                                 <a class="dropdown-item" href="#">その他</a>
                             </div>
@@ -234,16 +243,16 @@
                                 </p>
                                 <small class="text-muted"></small>
                             </a>
-                            <a href="./bizTalkDetail_cure_2.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <a href="javascript:void(0);" class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">メール</h5>
+                                    <h5 class="mb-1">連絡</h5>
                                     <small>6/3</small>
                                 </div>
                                 <small>住所統合支援についての見積の稟議スケジュールを教えてほしいと依頼</small>
                             </a>
                             <a href="./bizTalkDetail_cure.html" class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">メール</h5>
+                                    <h5 class="mb-1">商談</h5>
                                     <small class="text-muted">4/13</small>
                                 </div>
                                 <small class="text-muted">事務所が入っているビルでコロナ患者が発生したため、ビルが封鎖されたとのこと。17日以降に出社する予定だったが、現在未定。稟議を通せる状況ではなく、検討が遅れそう。</small>
@@ -266,5 +275,139 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">予定登録</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>店舗データ整備補助</h5>
+                        <h5>株式会社Cure</h5>
+                        <div class="input-group date col-md-6" id="ordered_date" data-target-input="nearest">
+                            <input type="search" class="form-control datetimepicker-input" data-target="#next_date" />
+                            <span class="input-group-append" data-target="#next_date" data-toggle="datetimepicker">
+                                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                            </span>
+                            <select class="form-control">
+                                <option>商談</option>
+                                <option>連絡</option>
+                                <option>連絡待ち</option>
+                                <option>資料送付</option>
+                                <option>見積</option>
+                                <option>納品</option>
+                            </select>
+                        </div>
+                    <div class="form-group col-md-4">
+                        <label>担当者</label>
+                        <select class="form-control">
+                            <option>和井　菱雄</option>
+                        </select>
+                    </div>
+                        <form>
+                            <div class="form-group mt-3">
+                                <textarea class="form-control" id="message-text" placeholder="予定の概要"></textarea>
+                            </div>
+                        </form>
+                        <form>
+                            <div class="form-group mt-3">
+                                <textarea class="form-control" id="message-text" placeholder="期限までのタスク"></textarea>
+                            </div>
+                        </form>
+                        <form>
+                            <div class="form-group row mt-3 pl-3">
+                                <label for="inputPassword" class="col-sm-3 col-form-label">アラート日数</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" id="next_plan_alert" value="14" size="3">
+                                </div>
+                                <label for="inputPassword" class="col-sm-3 col-form-label">日前に通知</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">キャンセル</button>
+                        <button type="button" class="btn btn-primary">登　録</button>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <div class="modal fade" id="exampleModal12" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">タスク更新</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>
+                            連絡
+                        </h4>
+                        <p>店舗データ整備補助</p>
+                        <p>株式会社Cure</p>
+                        <div class="input-group date col-md-6" id="ordered_date" data-target-input="nearest">
+                            <label>期限 </label>
+                            <input type="search" class="form-control datetimepicker-input" data-target="#next_date" />
+                            <span class="input-group-append" data-target="#next_date" data-toggle="datetimepicker">
+                                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                            </span>
+                        </div>
+                        <div class="input-group col-md-3">
+                            <label for="staticEmail2">進捗率</label>
+                            <input type="number" class="form-control" value="">
+                            <label for="staticEmail2">%</label>
+                        </div>
+                        <form>
+                            <div class="form-group mt-3">
+                                <textarea class="form-control" id="message-text" placeholder="対応について入力"></textarea>
+                            </div>
+                        </form>
+                        <div class="card">
+                            <div class="card-header">次回予定</div>
+                            <div class="card-body">
+                                <div class="input-group date" id="ordered_date" data-target-input="nearest">
+                                    <input type="search" class="form-control datetimepicker-input" data-target="#next_date" />
+                                    <span class="input-group-append" data-target="#next_date" data-toggle="datetimepicker">
+                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                    </span>
+                                    <select class="form-control d-none">
+                                        <option>に</option>
+                                        <option>までに</option>
+                                    </select>
+                                    <select class="form-control">
+                                        <option>商談</option>
+                                        <option>連絡</option>
+                                        <option>連絡待ち</option>
+                                        <option>資料送付</option>
+                                        <option>見積</option>
+                                        <option>納品</option>
+                                    </select>
+                                </div>
+                                <form>
+                                    <div class="form-group row mt-3 pl-3">
+                                        <label for="inputPassword" class="col-sm-3 col-form-label">アラート日数</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" id="next_plan_alert" value="14" size="3">
+                                        </div>
+                                        <label for="inputPassword" class="col-sm-3 col-form-label">日前に通知</label>
+                                    </div>
+                                </form>
+                                <textarea id="next_plan" class="form-control" placeholder="概要を入力してください"></textarea>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">キャンセル</button>
+                        <button type="button" class="btn btn-primary">更　新</button>
+                    </div>
+                </div>
+            </div>
+        </div>        
     </body>
 </html>
