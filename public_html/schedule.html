@@ -89,11 +89,11 @@
             });
 
             function toDetail(id) {
-                if (id == '0'){
+                if (id == '0') {
                     location.href = "./projectDetail_motokura.html";
                 } else if (id == '2') {
                     location.href = "./projectDetail_cure.html";
-                }else {
+                } else {
                     location.href = "./projectDetail.html";
                 }
             }
@@ -119,7 +119,7 @@
                 </div>
             </nav>            
         </header>
-        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="position: absolute; top: 5rem; right: 0;">
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="position: absolute; top: 5rem; right: 0; z-index: 10;">
             <div class="toast-header">
                 <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="red"/></svg>
                 <strong class="mr-auto">ToDo</strong>
@@ -130,21 +130,45 @@
             </div>
             <div class="toast-body">
                 <ul>
-                    <li>当日の予定＝この日に行う活動</li>
-                    <li>当日期限のタスク＝この日に期限を迎えるタスク</li>
+                    <li>当日の予定＝この日に行う活動 or この日に期限を迎えるタスク</li>
+                    <li>予定やタスクは基本的には案件管理の中で登録されていくもので、ここには該当日のものが自動的に反映される</li>
+                    <li>案件に関わらない予定の追加はここからできる</li>
+                    <li>予定にはその日までに行われるべきタスクが伴う　例えば
+                        <ul>
+                            <li>[商談]　事前準備</li>
+                            <li>[見積提示]　見積作成</li>
+                            <li>[連絡]　連絡事項の調査等</li>
+                            <li>[資料送付]　資料作成</li>
+                            <li>[連絡待ち]　これは特にないか　その日までに連絡が来なければ催促し、次の予定を入れるというサイクルになる</li>
+                        </ul>
+                    </li>
+                    <li>予定に伴うタスクが予定日（期限）前に完了した場合は、「タスク一覧」にて完了の入力をする。その予定には「完了 何月何日」を表示。
+                        <ul>
+                            <li>ただし、商談はこの限りではなく、事前準備タスクが完了となるだけで、商談の予定は予定日に必ず上がる。商談が済んだら別途、商談報告入力をしてもらう。</li>
+                            <li>仮に商談が予定日より早く行われた場合は、報告入力時に商談の日付を変えてもらう。それで当初の予定日には上がって来ない。</li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
         <div class="pt-5 pl-5">
-            <h1 class="py-3">予定</h1>
+            <h3 class="py-3">
+                予定
+            </h3>
             <form>
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <div class="input-group date" id="date_from" data-target-input="nearest">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fas fa-angle-left"></i></button>
+                            </div>
                             <input type="search" class="form-control datetimepicker-input" data-target="#date_from" />
                             <span class="input-group-append" data-target="#date_from" data-toggle="datetimepicker">
                                 <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                             </span>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fas fa-angle-right"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -157,12 +181,174 @@
                     </div>
                 </div>
             </form>
-            <div style="padding: 1% 2%;">
-                <ul>
-                    <li>当日の予定</li>
-                    <li>当日期限のタスク</li>
-                </ul>
+            <div>
+                <div class="card border-info mt-3">
+                    <div class="card-header">
+                        <div class="dropdown pull-right">
+                            <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-plus"></i> 予定を登録
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="./registNegotiation.html">商談</a>
+                                <a class="dropdown-item" href="./registDelivery.html">見積</a>
+                                <a class="dropdown-item" href="#">その他</a>
+                            </div>
+                        </div>
+                        予定
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="./bizTalkDetail_cure.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">商談　○○株式会社</h5>
+                                <small>10:00</small>
+                            </div>
+                            <p class="mb-1">案件名</p>
+                            <small>商談概要</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal" data-target="#exampleModal">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">連絡　株式会社△△△</h5>
+                                <small>13:00</small>
+                            </div>
+                            <p class="mb-1">案件名</p>
+                            <small>連絡事項</small>
+                        </a>
+                        <a href="./estimateDetail.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">見積提示　□□□株式会社</h5>
+                                <small>16:00</small>
+                            </div>
+                            <p class="mb-1">案件名</p>
+                            <small>見積概要</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal" data-target="#exampleModal">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">資料送付　株式会社●●●●</h5>
+                                <small></small>
+                            </div>
+                            <p class="mb-1">案件名</p>
+                            <small>資料概要</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal" data-target="#exampleModal">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">連絡待ち　××商事株式会社</h5>
+                                <small></small>
+                            </div>
+                            <p class="mb-1">案件名</p>
+                            <small>概要</small>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card border-danger mt-5 d-none">
+                    <div class="card-header">
+                        本日が期限のタスク
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal" data-target="#exampleModal">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">資料送付　○○○</h5>
+                                <small></small>
+                            </div>
+                            <p class="mb-1">案件名</p>
+                            <small>XXXの件</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal" data-target="#exampleModal">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">連絡　△△△</h5>
+                                <small></small>
+                            </div>
+                            <p class="mb-1">案件名</p>
+                            <small>xxxxxxxxの価格</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal" data-target="#exampleModal">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">見積　▲▲▲▲株式会社</h5>
+                                <small></small>
+                            </div>
+                            <p class="mb-1">案件名</p>
+                            <small></small>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">タスク更新</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>
+                            連絡
+                        </h4>
+                        <p>店舗データ整備補助</p>
+                        <p>株式会社Cure</p>
+                        <div class="input-group date col-md-6" id="ordered_date" data-target-input="nearest">
+                            <label>期限 </label>
+                            <input type="search" class="form-control datetimepicker-input" data-target="#next_date" />
+                            <span class="input-group-append" data-target="#next_date" data-toggle="datetimepicker">
+                                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                            </span>
+                        </div>
+                        <div class="input-group col-md-3">
+                            <label for="staticEmail2">進捗率</label>
+                            <input type="number" class="form-control" value="">
+                            <label for="staticEmail2">%</label>
+                        </div>
+                        <form>
+                            <div class="form-group mt-3">
+                                <textarea class="form-control" id="message-text" placeholder="対応について入力"></textarea>
+                            </div>
+                        </form>
+                        <div class="card">
+                            <div class="card-header">次回予定</div>
+                            <div class="card-body">
+                                <div class="input-group date" id="ordered_date" data-target-input="nearest">
+                                    <input type="search" class="form-control datetimepicker-input" data-target="#next_date" />
+                                    <span class="input-group-append" data-target="#next_date" data-toggle="datetimepicker">
+                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                    </span>
+                                    <select class="form-control d-none">
+                                        <option>に</option>
+                                        <option>までに</option>
+                                    </select>
+                                    <select class="form-control">
+                                        <option>商談</option>
+                                        <option>連絡</option>
+                                        <option>連絡待ち</option>
+                                        <option>資料送付</option>
+                                        <option>見積</option>
+                                        <option>納品</option>
+                                    </select>
+                                </div>
+                                <form>
+                                    <div class="form-group row mt-3 pl-3">
+                                        <label for="inputPassword" class="col-sm-3 col-form-label">アラート日数</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" id="next_plan_alert" value="14" size="3">
+                                        </div>
+                                        <label for="inputPassword" class="col-sm-3 col-form-label">日前に通知</label>
+                                    </div>
+                                </form>
+                                <textarea id="next_plan" class="form-control" placeholder="概要を入力してください"></textarea>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">キャンセル</button>
+                        <button type="button" class="btn btn-primary">更　新</button>
+                    </div>
+                </div>
+            </div>
+        </div>        
+
     </body>
 </html>

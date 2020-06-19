@@ -113,7 +113,7 @@
                 </div>
             </nav>            
         </header>
-        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="position: absolute; top: 10rem; right: 0;">
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="position: fixed; bottom: 1rem; right: 0; z-index: 10;">
             <div class="toast-header">
                 <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="red"/></svg>
                 <strong class="mr-auto">ToDo</strong>
@@ -125,10 +125,11 @@
                     <li>ここで見たいのは?
                         <ul>
                             <li>顧客情報</li>
-                            <li>企業情報</li>
-                            <li>活動情報</li>
+                            <li>活動中の案件</li>
                             <li>納入情報</li>
+                            <li>企業情報</li>
                             <li>スタッフ一覧</li>
+                            <li>案件履歴</li>
                             <li style="margin-left: 20px;">メールアドレスをクリックでメーラー起動orアドレスコピー</li>
                             <li>項目が多いので、なるべく同ジャンルのものを一括りにして表示させたい</li>
                         </ul>
@@ -136,12 +137,201 @@
                 </ul>
             </div>
         </div>
-        <div class="pt-5 pl-5">
+        <div class="pt-5 px-5">
             <h3 class="py-3">
                 <a class="btn btn-primary btn-sm pull-right" href="./registCustomer.html"><i class="fas fa-edit"></i> 編集</a>
                 顧客詳細
             </h3>
-            <div class="row">
+
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <small><span class="badge badge-success">既存</span></small> 株式会社ワイ・ビー・シー
+                        <a class="pull-right" href="https://www.google.co.jp/search?q=ワイ・ビー・シー" target="_blank"><small>Google検索</small></a>
+                    </h3>
+                    <h6 class="card-subtitle mb-2 text-muted">ワイ・ビーシー</h6>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th class="table-active">顧客コード</th>
+                                <td>YBC1234567890</td>
+                                <th class="table-active">略称</th>
+                                <td>YBC</td>
+                            </tr>
+                            <tr>
+                                <th class="table-active">自社担当者</th>
+                                <td>和井　菱雄</td>
+                                <th class="table-active">取引経緯</th>
+                                <td>2015展示会</td>
+                            </tr>
+                            <tr>
+                                <th class="table-active">備考</th>
+                                <td colspan="3">ｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘｘ</td>
+                            </tr>
+                            <tr>
+                                <th class="table-active">請求締日</th>
+                                <td>末日</td>
+                                <th class="table-active">支払サイト</th>
+                                <td>60日</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card mt-5">
+                <div class="card-header">
+                    納入情報
+                </div>
+                <div class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Web診療圏</h5>
+                            <small></small>
+                        </div>
+                        <p class="mb-1">納入情報では何が見たい？</p>
+                        <small></small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">XXXXXXXXXXXXXXXXXXXXXX</h5>
+                            <small></small>
+                        </div>
+                        <p class="mb-1">XXXXXXXXXXXXXXXXXXXXXX</p>
+                        <small></small>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card mt-5">
+                <div class="card-header">
+                    活動中の案件
+                </div>
+                <div class="list-group list-group-flush">
+                    <a href="./projectDetail.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">案件名</h5>
+                            <small></small>
+                        </div>
+                        <p class="mb-1">案件情報の中で一番見たいのは何だ？それをここに出す</p>
+                        <small></small>
+                    </a>
+                    <a href="./projectDetail.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">XXXXXXXXXXXXXXXXXXXXXX</h5>
+                            <small></small>
+                        </div>
+                        <p class="mb-1">XXXXXXXXXXXXXXXXXXXXXX</p>
+                        <small></small>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card mt-5">
+                <div class="card-header">
+                    スタッフ情報
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover table-sm">
+                        <thead>
+                        <th>氏名</th>
+                        <th>カナ</th>
+                        <th>性別</th>
+                        <th>部署</th>
+                        <th>役職</th>
+                        <th>電話番号</th>
+                        <th>メールアドレス</th>
+                        <th>名刺交換者</th>
+                        <th>名刺交換日</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>尾居　喜美</td>
+                                <td>オイ　キミ</td>
+                                <td>男</td>
+                                <td>営業部</td>
+                                <td>部長</td>
+                                <td>000-1111-1111</td>
+                                <td><a href="mailto:aaaa@aaaa.jp">oikimi@ybcc.co.jp</a></td>
+                                <td>和井　菱雄</td>
+                                <td>2015/7/10</td>
+                            </tr>
+                            <tr>
+                                <td>日都　奈実</td>
+                                <td>ヒト　ナミ</td>
+                                <td>女</td>
+                                <td>営業企画部</td>
+                                <td>主任</td>
+                                <td>00-2211-5555</td>
+                                <td><a href="mailto:aaaa@aaaa.jp">hitonami@ybcc.co.jp</a></td>
+                                <td>和井　菱雄</td>
+                                <td>2015/7/10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card mt-5">
+                <div class="card-header">
+                    基本情報
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th class="table-active">住所</th>
+                                <td>
+                                    〒221-0063 神奈川県横浜市神奈川区立町6-1
+                                    <a class="pull-right" href="https://maps.google.co.jp/maps?q=神奈川県横浜市神奈川区立町６−１" target="_blank"><small>地図</small></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="table-active">電話番号</th>
+                                <td>045-432-9804</td>
+                            </tr>
+                            <tr>
+                                <th class="table-active">FAX番号</th>
+                                <td>045-432-9144</td>
+                            </tr>
+                            <tr>
+                                <th class="table-active">URL</th>
+                                <td><a href="http://www.ybco.co.jp" target="_blank">http://www.ybco.co.jp</a></td>
+                            </tr>
+                            <tr>
+                                <th class="table-active">業種</th>
+                                <td>ソフトウェア開発</td>
+                            </tr>
+                            <tr>
+                                <th class="table-active">本社・支社</th>
+                                <td>本社</td>
+                            </tr>
+                            <tr>
+                                <th class="table-active">会社設立年月日</th>
+                                <td>1984年(昭和59年)5月8日</td>
+                            </tr>
+                            <tr>
+                                <th class="table-active">資本金</th>
+                                <td>10,000万円</td>
+                            </tr>
+                            <tr>
+                                <th class="table-active">年商</th>
+                                <td>200,000万円</td>
+                            </tr>
+                            <tr>
+                                <th class="table-active">従業員数</th>
+                                <td>60名</td>
+                            </tr>
+                            <tr>
+                                <th class="table-active">上場</th>
+                                <td>非上場</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row d-none">
                 <div class="col-sm-9">
                     <div class="card">
                         <h6 class="card-header">基本情報</h6>
@@ -316,12 +506,12 @@
                                 <div id="staff_list" class="tab-pane" role="tabpanel" aria-labelledby="staff_list-tab">
                                     <table class="table table-hover">
                                         <thead>
-                                            <th>スタッフ氏名</th>
-                                            <th>部署</th>
-                                            <th>役職</th>
-                                            <th>電話番号</th>
-                                            <th>メールアドレス</th>
-                                            <th>名刺交換者</th>
+                                        <th>スタッフ氏名</th>
+                                        <th>部署</th>
+                                        <th>役職</th>
+                                        <th>電話番号</th>
+                                        <th>メールアドレス</th>
+                                        <th>名刺交換者</th>
                                         </thead>
                                         <tbody>
                                             <tr>

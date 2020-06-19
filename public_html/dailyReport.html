@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>タスク一覧</title>
+        <title>日報</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap CSS -->
@@ -119,7 +119,7 @@
                 </div>
             </nav>            
         </header>
-        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="position: absolute; top: 5rem; right: 0;">
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="position: absolute; top: 5rem; right: 0; z-index: 10;">
             <div class="toast-header">
                 <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="red"/></svg>
                 <strong class="mr-auto">ToDo</strong>
@@ -130,183 +130,136 @@
             </div>
             <div class="toast-body">
                 <ul>
-                    <li>検索条件 どんな状態が見たいか</li>
-                    <li>未完了、アラート（何日前にお知らせの範囲内）で絞り込み</li>
-                    <li><button type="button" class="btn btn-primary btn-sm">変更</button>で期限、内容をダイアログ入力、更新</li>
-                    <li><button type="button" class="btn btn-primary btn-sm">変更</button>で更新されたら更新履歴が残る</li>
-                    <li><button type="button" class="btn btn-success btn-sm">実施</button>で進捗率をダイアログ入力、更新</li>
-                    <li><button type="button" class="btn btn-success btn-sm">実施</button>で入力されたものはその日の活動として履歴に残り、その日の日報に反映される</li>
-                    <li>商談タスクはここで準備タスクは完了とされるが、商談結果は別途入力してもらう</li>
-                    <li>見積タスクは見積入力は別途、見積を顧客提示をもってタスク完了とする</li>
+                    <li>日報＝この日に行われた活動</li>
+                    <li>予定やタスクの消化を入力すれば自動的に反映される</li>
+                    <li>タスクは進捗率を更新する度、その日の日報に反映される</li>
+                    <li>予定外の活動はここから登録可能　案件に関わらない活動、社内作業等</li>
                 </ul>
             </div>
         </div>
         <div class="pt-5 pl-5">
-            <h3 class="py-3">タスク一覧</h3>
+            <h3 class="py-3">
+                日報
+            </h3>
             <form>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputEmail4">顧客名</label>
-                        <input type="search" class="form-control" id="inputEmail4" placeholder="顧客名で検索">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputEmail4">案件名</label>
-                        <input type="search" class="form-control" id="inputEmail4" placeholder="案件名で検索">
-                    </div>
-                </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <div class="input-group date" id="date_from" data-target-input="nearest">
-                            <label for="date_from" class="pt-2 pr-2">期間　</label>
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fas fa-angle-left"></i></button>
+                            </div>
                             <input type="search" class="form-control datetimepicker-input" data-target="#date_from" />
                             <span class="input-group-append" data-target="#date_from" data-toggle="datetimepicker">
                                 <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                             </span>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <div class="input-group date" id="date_to" data-target-input="nearest">
-                            <label for="date_to" class="pt-2 pr-2">　～　</label>
-                            <input type="search" class="form-control datetimepicker-input" data-target="#date_to" />
-                            <span class="input-group-append" data-target="#date_to" data-toggle="datetimepicker">
-                                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                            </span>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fas fa-angle-right"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-3">
                         <label>担当者</label>
                         <select class="form-control">
                             <option>和井　菱雄</option>
                         </select>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary">検　索</button>
             </form>
-            <div style="padding: 1% 2%;">
-                <table class="table table-hover">
-                    <caption>※行をクリックすると詳細にリンクします（当サンプルでは1、2行目のみ）</caption>
-                    <thead>
-                        <tr>
-                            <th>顧客名</th>
-                            <th>案件名</th>
-                            <th>期限</th>
-                            <th>内容</th>
-                            <th></th>
-                            <th>進捗</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="table-warning">
-                            <td onclick="toDetail('0')">元蔵</td>
-                            <td onclick="toDetail('0')">テレワークシステム</td>
-                            <td>2020/6/25</td>
-                            <td>状況確認</td>
-                            <td>
-                                <button type="button" class="btn btn-primary btn-sm">変更</button>
-                            </td>
-                            <td class="text-right">
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <small>10%</small>
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-check"></i> 実施</button>
-                            </td>
-                        </tr>
-                        <tr class="table-warning">
-                            <td onclick="toDetail('2')">Cure</td>
-                            <td onclick="toDetail('2')">Chiz+</td>
-                            <td>2020/6/10</td>
-                            <td>連絡</td>
-                            <td>
-                                <button type="button" class="btn btn-primary btn-sm">変更</button>
-                            </td>
-                            <td class="text-right">
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <small>50%</small>
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-success btn-sm"><i class="fas fa-check"></i> 実施</button>
-                            </td>
-                        </tr>
-                        <tr class="table-danger">
-                            <td onclick="toDetail('1')">武蔵村山病院</td>
-                            <td onclick="toDetail('1')">健診営業支援</td>
-                            <td>2020/6/3</td>
-                            <td>資料作成</td>
-                            <td>
-                                <button type="button" class="btn btn-primary btn-sm">変更</button>
-                            </td>
-                            <td class="text-right">
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <small>60%</small>
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-success btn-sm"><i class="fas fa-check"></i> 実施</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td onclick="toDetail('1')">北山住宅販売</td>
-                            <td onclick="toDetail('1')">介護圏</td>
-                            <td>2020/5/25</td>
-                            <td>挨拶</td>
-                            <td>
-                                <button type="button" class="btn btn-primary btn-sm">変更</button>
-                            </td>
-                            <td>完了</td>
-                            <td>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td onclick="toDetail('1')">尾藤会計事務所</td>
-                            <td onclick="toDetail('1')">Web診療圏</td>
-                            <td>2020/5/18</td>
-                            <td>内容・時期の確認</td>
-                            <td>
-                                <button type="button" class="btn btn-primary btn-sm">変更</button>
-                            </td>
-                            <td>完了</td>
-                            <td>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td onclick="toDetail('1')">スーパーバッグ</td>
-                            <td onclick="toDetail('1')">SWE届け先分類権限追加</td>
-                            <td>2020/4/30</td>
-                            <td>見積</td>
-                            <td>
-                                <button type="button" class="btn btn-primary btn-sm">変更</button>
-                            </td>
-                            <td>完了</td>
-                            <td>
-                            </td>
-                        </tr>                       
-                        <tr>
-                            <td onclick="toDetail('1')">タカサ</td>
-                            <td onclick="toDetail('1')"></td>
-                            <td>2019/4/23</td>
-                            <td>訪問</td>
-                            <td>
-                                <button type="button" class="btn btn-primary btn-sm">変更</button>
-                            </td>
-                            <td>完了</td>
-                            <td>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div>
+                <div class="card border-success mt-3">
+                    <div class="card-header">
+                        <div class="dropdown pull-right">
+                            <button class="btn btn-sm btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-plus"></i> 予定外の活動を登録
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="./registNegotiation.html">商談</a>
+                                <a class="dropdown-item" href="./registDelivery.html">見積</a>
+                                <a class="dropdown-item" href="#">その他</a>
+                            </div>
+                        </div>
+                        日報
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="./bizTalkDetail_cure.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">商談　○○株式会社</h5>
+                                <small>10:00</small>
+                            </div>
+                            <p class="mb-1">案件名</p>
+                            <small>商談概要</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal" data-target="#exampleModal">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">連絡　株式会社△△△</h5>
+                                <small>13:00</small>
+                            </div>
+                            <p class="mb-1">案件名</p>
+                            <small>連絡事項</small>
+                        </a>
+                        <a href="./estimateDetail.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">見積提示　□□□株式会社</h5>
+                                <small>16:00</small>
+                            </div>
+                            <p class="mb-1">案件名</p>
+                            <small>見積概要</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal" data-target="#exampleModal">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">資料送付　株式会社●●●●</h5>
+                                <small></small>
+                            </div>
+                            <p class="mb-1">案件名</p>
+                            <small>資料概要</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal" data-target="#exampleModal">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">連絡待ち　××商事株式会社</h5>
+                                <small></small>
+                            </div>
+                            <p class="mb-1">案件名</p>
+                            <small>概要</small>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card border-danger mt-5 d-none">
+                    <div class="card-header">
+                        本日が期限のタスク
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal" data-target="#exampleModal">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">資料送付　○○○</h5>
+                                <small></small>
+                            </div>
+                            <p class="mb-1">案件名</p>
+                            <small>XXXの件</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal" data-target="#exampleModal">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">連絡　△△△</h5>
+                                <small></small>
+                            </div>
+                            <p class="mb-1">案件名</p>
+                            <small>xxxxxxxxの価格</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal" data-target="#exampleModal">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">見積　▲▲▲▲株式会社</h5>
+                                <small></small>
+                            </div>
+                            <p class="mb-1">案件名</p>
+                            <small></small>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
+
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -318,10 +271,10 @@
                     </div>
                     <div class="modal-body">
                         <h4>
-                            状況確認
+                            連絡
                         </h4>
-                        <p>テレワークシステム</p>
-                        <p>元蔵</p>
+                        <p>店舗データ整備補助</p>
+                        <p>株式会社Cure</p>
                         <div class="input-group date col-md-6" id="ordered_date" data-target-input="nearest">
                             <label>期限 </label>
                             <input type="search" class="form-control datetimepicker-input" data-target="#next_date" />
@@ -373,7 +326,7 @@
                             </div>
 
                         </div>
-                        
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">キャンセル</button>
@@ -382,5 +335,6 @@
                 </div>
             </div>
         </div>        
+
     </body>
 </html>
