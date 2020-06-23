@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>日報</title>
+        <title>カレンダー</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="css/tempusdominus-bootstrap-4.css" rel="stylesheet" type="text/css">
+        <link href="css/fullcalendar.min.css" rel="stylesheet" type="text/css">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/ja.js" type="text/javascript"></script>
         <script src="js/tempusdominus-bootstrap-4.js"></script>
+        <script src="js/fullcalendar.min.js"></script>
+        <script src="js/fullcalendar-locale-ja.js"></script>
         <script defer src="https://use.fontawesome.com/releases/v5.10.2/js/all.js"></script>
         <style type="text/css">
             .datepicker-days th.dow:first-child,
@@ -30,6 +33,7 @@
             $(function () {
                 $('[data-toggle="tooltip"]').tooltip();
                 $('.toast').toast('show');
+                $("#calendar").fullCalendar();
                 $('#date_from').datetimepicker({
                     dayViewHeaderFormat: 'YYYY年 MMMM',
                     tooltips: {
@@ -139,134 +143,34 @@
             </div>
             <div class="toast-body">
                 <ul>
-                    <li>日報＝この日に行われた活動</li>
-                    <li>予定やタスクの消化を入力すれば自動的に反映される</li>
-                    <li>タスクは進捗率を更新する度、その日の日報に反映される</li>
-                    <li>予定外の活動はここから登録可能　案件に関わらない活動、社内作業等</li>
+                    <li>予定と日報に切り替え</li>
+                    <li>日をクリックしたらその日の予定・日報にリンク</li>
                 </ul>
             </div>
         </div>
-        <div class="pt-5 pl-5">
+        <div class="pt-5 px-5">
             <h3 class="py-3">
-                日報
+                カレンダー
             </h3>
             <form>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <div class="input-group date" id="date_from" data-target-input="nearest">
-                            <div class="input-group-prepend">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fas fa-angle-left"></i></button>
-                            </div>
-                            <input type="search" class="form-control datetimepicker-input" data-target="#date_from" />
-                            <span class="input-group-append" data-target="#date_from" data-toggle="datetimepicker">
-                                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                            </span>
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fas fa-angle-right"></i></button>
-                            </div>
-                        </div>
+                <div class="dropdown pull-right">
+                    <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-plus"></i> 登録
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="./registNegotiation.html">商談</a>
+                        <a class="dropdown-item" href="./registDelivery.html">見積</a>
+                        <a class="dropdown-item" href="#">その他</a>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label>担当者</label>
-                        <select class="form-control">
-                            <option>和井　菱雄</option>
-                        </select>
-                    </div>
+                <div class="form-group col-md-3">
+                    <label>担当者</label>
+                    <select class="form-control">
+                        <option>和井　菱雄</option>
+                    </select>
                 </div>
             </form>
-            <div>
-                <div class="card border-success mt-3">
-                    <div class="card-header">
-                        <div class="dropdown pull-right">
-                            <button class="btn btn-sm btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-plus"></i> 予定外の活動を登録
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="./registNegotiation.html">商談</a>
-                                <a class="dropdown-item" href="./registDelivery.html">見積</a>
-                                <a class="dropdown-item" href="#">その他</a>
-                            </div>
-                        </div>
-                        日報
-                    </div>
-                    <div class="list-group list-group-flush">
-                        <a href="./bizTalkDetail_cure.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">商談　○○株式会社</h5>
-                                <small>10:00</small>
-                            </div>
-                            <p class="mb-1">案件名</p>
-                            <small>商談概要</small>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal" data-target="#exampleModal">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">連絡　株式会社△△△</h5>
-                                <small>13:00</small>
-                            </div>
-                            <p class="mb-1">案件名</p>
-                            <small>連絡事項</small>
-                        </a>
-                        <a href="./estimateDetail.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">見積提示　□□□株式会社</h5>
-                                <small>16:00</small>
-                            </div>
-                            <p class="mb-1">案件名</p>
-                            <small>見積概要</small>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal" data-target="#exampleModal">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">資料送付　株式会社●●●●</h5>
-                                <small></small>
-                            </div>
-                            <p class="mb-1">案件名</p>
-                            <small>資料概要</small>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal" data-target="#exampleModal">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">連絡待ち　××商事株式会社</h5>
-                                <small></small>
-                            </div>
-                            <p class="mb-1">案件名</p>
-                            <small>概要</small>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card border-danger mt-5 d-none">
-                    <div class="card-header">
-                        本日が期限のタスク
-                    </div>
-                    <div class="list-group list-group-flush">
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal" data-target="#exampleModal">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">資料送付　○○○</h5>
-                                <small></small>
-                            </div>
-                            <p class="mb-1">案件名</p>
-                            <small>XXXの件</small>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal" data-target="#exampleModal">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">連絡　△△△</h5>
-                                <small></small>
-                            </div>
-                            <p class="mb-1">案件名</p>
-                            <small>xxxxxxxxの価格</small>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" data-toggle="modal" data-target="#exampleModal">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">見積　▲▲▲▲株式会社</h5>
-                                <small></small>
-                            </div>
-                            <p class="mb-1">案件名</p>
-                            <small></small>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <div id="calendar"></div>
         </div>
 
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
