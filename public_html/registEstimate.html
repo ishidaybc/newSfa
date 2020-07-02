@@ -94,11 +94,11 @@
                     <li>入力項目</li>
                     <li>案件（選択）</li>
                     <li>顧客（案件に紐づかない場合、選択）</li>
-                    <li>明細</li>
+<!--                    <li>明細</li>
                     <li>　商品（過去の入力内容から紐づけ）</li>
                     <li>　売上金額（自動計算）</li>
                     <li>　粗利（自動計算）</li>
-                    <li>合計金額（自動計算）</li>
+                    <li>合計金額（自動計算）</li>-->
                     <li>備考</li>
                 </ul>
             </div>
@@ -189,7 +189,7 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label for="estimate_date">見積日</label>
                         <div class="input-group date" data-target-input="nearest">
                             <input type="search" name="estimate_date" class="form-control datetimepicker-input" id="estimate_date">
@@ -199,7 +199,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-row">
+                <div class="form-row d-none">
                     <div class="form-group col-md-9">
                         <label for="detail">明細</label>
                         <table class="table table-striped table-hover">
@@ -303,7 +303,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="pb-5">
+                <div class="pb-5 d-none">
                     <button type="button" class="btn btn-default btn-outline-dark">明細行を追加<i class="fas fa-plus"></i></button>
                 </div>
                 <div class="form-row">
@@ -311,6 +311,9 @@
                         <label for="remarks_text">備考</label>
                         <textarea id="remarks_text" class="form-control" placeholder="案件の概要を入力してください"></textarea>
                     </div>
+                </div>
+                <div class="pb-5">
+                    *** 見積書ファイルアップロード ***
                 </div>
                 <button type="button" class="btn btn-primary">登　録</button>
             </form>

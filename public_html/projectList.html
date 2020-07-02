@@ -115,14 +115,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="./customerList.html">顧客</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item d-none">
                             <a class="nav-link" href="./taskList.html"><i class="fas fa-tasks"></i> タスク<span class="badge badge-pill badge-danger">5</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./commentList.html"><i class="fas fa-comments"></i> コメント<span class="badge badge-pill badge-danger">3</span></a>
+                            <a class="nav-link" href="./calendar.html"><i class="far fa-calendar-alt"></i> カレンダー</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./calendar.html"><i class="far fa-calendar-alt"></i> カレンダー</a>
+                            <a class="nav-link" href="./commentList.html"><i class="fas fa-comments"></i> コメント<span class="badge badge-pill badge-danger">3</span></a>
                         </li>
                     </ul>
                 </div>
@@ -208,10 +208,8 @@
                             <th>見積金額</th>
                             <th>粗利金額</th>
                             <th></th>
-                            <th class="border-left">最新活動日</th>
-                            <th>最新活動内容</th>
-                            <th class="border-left">次回活動日</th>
-                            <th>次回活動内容</th>
+                            <th class="border-left">最新商談</th>
+                            <th class="border-left">次回予定</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -232,13 +230,9 @@
                             <td class="text-right">450,000</td>
                             <td class="text-right">270,000</td>
                             <td></td>
-                            <td class="border-left">2020/3/24</td>
-                            <td>稟議</td>
-                            <td class="border-left">2020/6/1</td>
-                            <td>データ整備の支援</td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-comment"></i></button>
-                            </td>
+                            <td class="border-left">2020/3/24　稟議</td>
+                            <td class="border-left">2020/6/1　データ整備の支援</td>
+                            <td></td>
                         </tr>
                         <tr class="border-top border-secondary">
                             <td class="h5" colspan="3" onclick="toDetail('0')">元蔵</td>
@@ -256,15 +250,11 @@
                             <td class="text-right">875,000</td>
                             <td class="text-right">645,000</td>
                             <td></td>
-                            <td class="border-left">2020/5/8</td>
-                            <td>見積提出</td>
+                            <td class="border-left">2020/5/8　見積提出</td>
                             <td class="border-left">
-                                <h5><span class="badge badge-danger" style="border-radius: 4px;">2020/5/20</span></h5>
+                                <span class="badge badge-danger">2020/5/20</span>　受注
                             </td>
-                            <td>受注</td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-comment"></i></button>
-                            </td>
+                            <td></td>
                         </tr>
                         <tr class="border-top border-secondary">
                             <td class="h5" colspan="3" onclick="toDetail('1')">武蔵村山病院</td>
@@ -282,15 +272,12 @@
                             <td class="text-right"></td>
                             <td class="text-right"></td>
                             <td></td>
-                            <td class="border-left">2020/3/12</td>
-                            <td>訪問・ヒヤリング</td>
+                            <td class="border-left">2020/3/12　訪問・ヒヤリング</td>
                             <td class="border-left">
-                                <h5><span class="badge badge-warning" style="border-radius: 4px;">未定</span></h5>
+                                <span class="badge badge-warning" style="border-radius: 4px;">未定</span>
+                                訪問(時機を見て)
                             </td>
-                            <td>訪問(時機を見て)</td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-comment"></i></button>
-                            </td>
+                            <td></td>
                         </tr>
                         <tr class="border-top border-secondary">
                             <td class="h5" colspan="3" onclick="toDetail('1')">北山住宅販売</td>
@@ -308,11 +295,9 @@
                             <td class="text-right">2,000,000</td>
                             <td class="text-right">1,000,000</td>
                             <td></td>
-                            <td class="border-left">2020/1/7</td>
-                            <td>挨拶</td>
-                            <td class="border-left">2020/6/15</td>
-                            <td>デモ(Web会議で対応できないか模索予定)</td>
-                            <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
+                            <td class="border-left">2020/1/7　挨拶</td>
+                            <td class="border-left">2020/6/15　デモ(Web会議で対応できないか模索予定)</td>
+                            <td></td>
                         </tr>
                         <tr class="border-top border-secondary">
                             <td class="h5" colspan="3" onclick="toDetail('1')">尾藤会計事務所</td>
@@ -330,13 +315,10 @@
                             <td class="text-right"></td>
                             <td class="text-right"></td>
                             <td></td>
-                            <td class="border-left">2019/12/13</td>
-                            <td>挨拶</td>
+                            <td class="border-left">2019/12/13　挨拶</td>
                             <td class="border-left">
-                                <h5><span class="badge badge-warning" style="border-radius: 4px;">未定</span></h5>
-                            </td>
-                            <td>内容・時期の確認</td>
-                            <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
+                                <span class="badge badge-warning" style="border-radius: 4px;">未定</span>　内容・時期の確認
+                            <td></td>
                         </tr>
                         <tr class="border-top border-secondary">
                             <td class="h5" colspan="3" onclick="toDetail('1')">スーパーバッグ</td>
@@ -354,11 +336,9 @@
                             <td class="text-right">3,375,000</td>
                             <td class="text-right">1,980,000</td>
                             <td></td>
-                            <td class="border-left">2019/12/2</td>
-                            <td>見積</td>
-                            <td class="border-left">2020/6/30</td>
-                            <td>稟議</td>
-                            <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
+                            <td class="border-left">2019/12/2　見積</td>
+                            <td class="border-left">2020/6/30　稟議</td>
+                            <td></td>
                         </tr>                       
                         <tr class="border-top border-secondary">
                             <td class="h5" colspan="3" onclick="toDetail('1')">タカサ</td>
@@ -376,13 +356,10 @@
                             <td class="text-right"></td>
                             <td class="text-right"></td>
                             <td></td>
-                            <td class="border-left">2019/8/22</td>
-                            <td>挨拶</td>
+                            <td class="border-left">2019/8/22　挨拶</td>
                             <td class="border-left">
-                                <h5><span class="badge badge-warning" style="border-radius: 4px;">未定</span></h5>
-                            </td>
-                            <td>訪問(時機を見て)</td>
-                            <td><button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="コメントする"><i class="fas fa-comment"></i></button></td>
+                                <span class="badge badge-warning">未定</span>　訪問(時機を見て)</td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>

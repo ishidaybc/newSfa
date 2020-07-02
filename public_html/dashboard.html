@@ -106,14 +106,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="./customerList.html">顧客</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item d-none">
                             <a class="nav-link" href="./taskList.html"><i class="fas fa-tasks"></i> タスク<span class="badge badge-pill badge-danger">5</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./commentList.html"><i class="fas fa-comments"></i> コメント<span class="badge badge-pill badge-danger">3</span></a>
+                            <a class="nav-link" href="./calendar.html"><i class="far fa-calendar-alt"></i> カレンダー</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./calendar.html"><i class="far fa-calendar-alt"></i> カレンダー</a>
+                            <a class="nav-link" href="./commentList.html"><i class="fas fa-comments"></i> コメント<span class="badge badge-pill badge-danger">3</span></a>
                         </li>
                     </ul>
                 </div>
@@ -132,18 +132,19 @@
                 <ul>
                     <li>ログイン直後　ここで見たいのは?
                         <ul>
-                            <li>個人の予定（目標）と実績　件数・金額</li>
-                            <li>件数は活動件数? 顧客軒数?</li>
+                            <li>受注・売上　個人の予定と実績　件数</li>
+                            <li>件数は活動件数</li>
                             <li>今日やること</li>
-                            <li>やり残していること、期限切れ</li>
-                            <li>期限の近いこと</li>
+                            <li class="d-none">やり残していること、期限切れ</li>
+                            <li class="d-none">期限の近いこと</li>
                             <li>他者からのコメント</li>
+                            <li class="text-muted">※タスク期限切れアラートは第2バージョン以降</li>
                         </ul>
                     </li>
                     <li>管理者が全体の状況を見たければ上の「案件」を押してもらう</li>
                     <li>上部に検索窓で案件名もしくは顧客名検索　キーワードは空白で区切り可</li>
                     <li>今日の予定、コメント等は件数表示がメインで、詳細はリンクして見てもらう</li>
-                    <li>タスクはアラート日数以降で未完である件数を表示</li>
+                    <li class="d-none">タスクはアラート日数以降で未完である件数を表示</li>
                 </ul>
             </div>
         </div>
@@ -167,7 +168,7 @@
                     </div>
                 </div>
             </div>
-            <div class="alert alert-danger" role="alert">
+            <div class="alert alert-danger d-none" role="alert">
                 <a href="./taskList.html" class="alert-link"><i class="far fa-calendar-times"></i> 期限切れタスクがあります!</a>
             </div>            
             <form>
@@ -182,23 +183,49 @@
             <div class="row p-3">
                 <div class="card d-inline-flex">
                     <div class="card-body">
-                        <h5 class="card-title text-center">6 / 10　件</h5>
-                        <h6 class="card-subtitle mb-2 text-muted text-center">今月の活動実績／予定</h6>
+                        <h5 class="card-title text-center">今月の実績／予定</h5>
+                        <h6 class="card-subtitle mb-2 text-muted text-center"></h6>
                         <p class="card-text"></p>
                         <div class="px-5">
-                            <table class="table table-borderless table-sm">
+                            <table class="table table-bordered table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>売上</th>
+                                        <th>件数</th>
+                                        <th>金額</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
                                     <tr>
-                                        <td>商談</td>
-                                        <td>4</td>
+                                        <td>予定</td>
+                                        <td class="text-right">2件</td>
+                                        <td class="text-right">1,000,000円</td>
                                     </tr>
                                     <tr>
-                                        <td>見積</td>
-                                        <td>2</td>
+                                        <td>実績</td>
+                                        <td class="text-right">1件</td>
+                                        <td class="text-right">600,000円</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="table table-bordered table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>受注</th>
+                                        <th>件数</th>
+                                        <th>金額</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>予定</td>
+                                        <td class="text-right">4件</td>
+                                        <td class="text-right">3,000,000円</td>
                                     </tr>
                                     <tr>
-                                        <td>受注</td>
-                                        <td>1</td>
+                                        <td>実績</td>
+                                        <td class="text-right">2件</td>
+                                        <td class="text-right">1,500,000円</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -219,8 +246,8 @@
                         <a href="schedule.html" class="card-link">詳細</a>
                     </div>
                 </div>
-                <div class="card d-inline-flex mr-3 mb-3" style="min-width: 200px;">
-                    <div class="card-body">
+                <div class="card d-inline-flex mr-3 mb-3" style="min-width: 200px; border: none;">
+                    <div class="card-body d-none">
                         <h5 class="card-title"><i class="fas fa-tasks"></i> タスク</h5>
                         <h6 class="card-subtitle mb-2 text-muted">3件</h6>
                         <h6 class="card-subtitle mb-2 text-danger">期限切れ　1件</h6>
